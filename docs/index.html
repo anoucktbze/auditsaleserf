@@ -22,109 +22,190 @@ body{background:var(--beige-pale);color:var(--text-main);font-family:'Lato',sans
 .hero::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:1000px;height:1000px;background:radial-gradient(ellipse,rgba(201,185,154,.07) 0%,transparent 65%);pointer-events:none;z-index:0}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,185,154,.2),transparent);pointer-events:none;z-index:0}
 .hero-logo,.hero-tag,h1,.hero-sub,.cta-hero,.trust-strip{position:relative;z-index:5}
-
-.hero-logo{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:64px;}
+.hero-logo{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:64px}
 .hero-logo-initials{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--beige);letter-spacing:.08em;line-height:1}
 .hero-logo-name{font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,185,154,.4)}
 .hero-logo-sep{width:40px;height:1px;background:rgba(201,185,154,.2);margin:4px 0}
-
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,185,154,.08);border:1px solid rgba(201,185,154,.15);padding:8px 20px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,185,154,.55);margin-bottom:28px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,185,154,.08);border:1px solid rgba(201,185,154,.15);padding:8px 20px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,185,154,.55);margin-bottom:28px}
 .hero-tag-dot{width:5px;height:5px;background:var(--beige);border-radius:50%;opacity:.5;animation:blink 2s infinite}
-
-h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,70px);font-weight:700;line-height:1.07;color:#FAFAF8;max-width:840px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,70px);font-weight:700;line-height:1.07;color:#FAFAF8;max-width:840px}
 h1 em{font-style:italic;color:var(--beige)}
-
-.hero-sub{font-size:clamp(15px,1.8vw,18px);color:rgba(201,185,154,.5);max-width:560px;line-height:1.8;margin:28px auto 52px;font-weight:300;}
-
+.hero-sub{font-size:clamp(15px,1.8vw,18px);color:rgba(201,185,154,.5);max-width:560px;line-height:1.8;margin:28px auto 52px;font-weight:300}
 .cta-hero{display:inline-flex;align-items:center;gap:14px;background:var(--beige);color:var(--navy);font-family:'Lato',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:20px 56px;border:none;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;z-index:10}
 .cta-hero::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .4s;pointer-events:none}
 .cta-hero:hover::after{transform:translateX(0)}
 .cta-hero:hover{transform:translateY(-2px);box-shadow:0 24px 60px rgba(201,185,154,.2)}
-
 .trust-strip{display:flex;gap:36px;margin-top:52px;animation:fadeUp 1s .3s ease both;flex-wrap:wrap;justify-content:center}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:400;letter-spacing:.08em;color:rgba(201,185,154,.35);text-transform:uppercase}
 .trust-sep{width:3px;height:3px;background:rgba(201,185,154,.2);border-radius:50%}
 
-/* ── AUDIT WRAP ── */
+/* ── AUDIT ── */
 .audit-wrap{display:none;background:var(--beige-pale);min-height:100vh}
 .audit-wrap.active{display:block}
-
 .audit-header{background:var(--navy);padding:24px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(201,185,154,.06)}
 .audit-brand-sm{font-family:'Playfair Display',serif;font-size:15px;color:var(--beige);opacity:.6;letter-spacing:.05em}
 .audit-step-info{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,185,154,.35)}
-
 .prog-bar{height:2px;background:rgba(201,185,154,.08);position:sticky;top:69px;z-index:49}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--beige),var(--beige-light));transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
-
 .audit-body{max-width:680px;margin:0 auto;padding:60px 24px 80px}
-
-/* Question */
 .q-card{background:#fff;border:1px solid var(--gris-border);padding:48px;box-shadow:0 2px 32px rgba(28,35,64,.05);animation:fadeUp .45s ease both}
-
 .q-eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--beige);margin-bottom:22px;display:flex;align-items:center;gap:12px}
 .q-eyebrow::after{content:'';flex:1;height:1px;background:var(--gris-border)}
-
 .q-title{font-family:'Playfair Display',serif;font-size:clamp(21px,3vw,28px);font-weight:700;line-height:1.25;color:var(--navy);margin-bottom:10px}
 .q-hint{font-size:14px;color:var(--text-soft);line-height:1.65;margin-bottom:36px;font-weight:300}
-
-/* Input */
 .input-shell{position:relative;display:flex;align-items:center}
 .input-badge{position:absolute;left:0;top:0;bottom:0;width:52px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;color:var(--beige);pointer-events:none;flex-shrink:0}
 .q-input{width:100%;background:var(--gris-card);border:1px solid var(--gris-border);padding:20px 20px 20px 68px;font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);outline:none;transition:border-color .2s;-moz-appearance:textfield;border-radius:0}
 .q-input::-webkit-outer-spin-button,.q-input::-webkit-inner-spin-button{-webkit-appearance:none}
 .q-input:focus{border-color:var(--navy)}
 .q-input::placeholder{color:var(--text-muted);font-weight:300;font-size:22px}
-
-/* Context badge (montre la progression du tunnel) */
 .tunnel-context{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
 .tc-step{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--gris-border);color:var(--text-muted)}
 .tc-step.active{background:var(--navy);color:var(--beige);border-color:var(--navy)}
 .tc-step.done{background:rgba(26,107,74,.08);color:var(--vert);border-color:rgba(26,107,74,.2)}
-
-/* Nav */
 .q-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;gap:12px}
 .btn-back{background:transparent;border:1px solid var(--gris-border);color:var(--text-muted);padding:14px 24px;font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
 .btn-back:hover{border-color:var(--navy);color:var(--navy)}
 .btn-fwd{flex:1;max-width:300px;background:var(--navy);color:var(--beige-light);border:none;padding:16px 32px;font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px}
 .btn-fwd:hover{background:var(--navy-mid);transform:translateY(-1px)}
 .btn-fwd:disabled{opacity:.3;cursor:not-allowed;transform:none}
-
-/* Calcul affiché en live */
 .live-calc{background:rgba(26,107,74,.06);border:1px solid rgba(26,107,74,.15);padding:14px 18px;margin-top:16px;font-size:13px;color:var(--vert);font-weight:400;display:none}
 .live-calc strong{font-weight:700}
 
-/* ── OPTIN ── */
-.optin-wrap{display:none;background:var(--beige-pale);min-height:100vh}
-.optin-wrap.active{display:block}
-.optin-inner{max-width:580px;margin:0 auto;padding:80px 24px}
-.optin-top{text-align:center;margin-bottom:40px}
-.optin-lock{width:72px;height:72px;border:1px solid var(--gris-border);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
-.optin-top h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,34px);font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.2}
-.optin-top p{font-size:15px;color:var(--text-soft);line-height:1.7;font-weight:300}
-.optin-card{background:#fff;border:1px solid var(--gris-border);padding:44px;box-shadow:0 2px 32px rgba(28,35,64,.05)}
-.fld{margin-bottom:18px}
+/* ══════════════════════════════════════
+   ── PAGE CHOC (nouvelle) ──
+══════════════════════════════════════ */
+.choc-page{display:none;background:var(--navy);min-height:100vh}
+.choc-page.active{display:block}
+
+.choc-top{padding:72px 24px 0;text-align:center;position:relative;overflow:hidden}
+.choc-top::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(ellipse,rgba(192,57,43,.08) 0%,transparent 65%);pointer-events:none}
+
+.choc-eyebrow{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,185,154,.4);margin-bottom:20px;animation:fadeUp .4s ease both}
+
+.choc-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,56px);font-weight:700;color:#FAFAF8;line-height:1.08;max-width:800px;margin:0 auto 16px;animation:fadeUp .4s .06s ease both}
+.choc-title .rge{color:#E07070}
+.choc-title em{font-style:italic;color:var(--beige)}
+
+.choc-sub{font-size:16px;color:rgba(201,185,154,.45);max-width:520px;margin:0 auto 48px;line-height:1.7;animation:fadeUp .4s .1s ease both}
+
+/* Compteur animé */
+.choc-counter-wrap{max-width:560px;margin:0 auto 32px;animation:fadeUp .4s .14s ease both}
+.choc-counter-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,57,43,.8);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px}
+.choc-counter-label::before,.choc-counter-label::after{content:'';flex:1;max-width:60px;height:1px;background:rgba(192,57,43,.3)}
+.choc-amount{font-family:'Playfair Display',serif;font-size:clamp(64px,12vw,110px);font-weight:900;color:#E05555;line-height:1;letter-spacing:-3px}
+.choc-amount-sub{font-size:14px;color:rgba(201,185,154,.35);margin-top:8px;font-weight:300}
+
+/* Ligne de sous-chiffres */
+.choc-sub-nums{display:flex;gap:2px;justify-content:center;margin:0 auto 48px;max-width:680px;flex-wrap:wrap;animation:fadeUp .4s .18s ease both}
+.csn{flex:1;min-width:140px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:20px 16px;text-align:center}
+.csn-val{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:700;margin-bottom:4px}
+.csn-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,185,154,.3)}
+
+/* Barres d'aversion à la perte */
+.choc-leaks{max-width:680px;margin:0 auto 0;animation:fadeUp .4s .22s ease both}
+.choc-leak-row{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.choc-leak-row:last-child{border-bottom:none}
+.choc-leak-icon{font-size:20px;flex-shrink:0;width:32px;text-align:center}
+.choc-leak-info{flex:1}
+.choc-leak-title{font-size:14px;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:3px}
+.choc-leak-desc{font-size:12px;color:rgba(201,185,154,.35);line-height:1.5}
+.choc-leak-amount{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#E07070;flex-shrink:0;text-align:right;min-width:90px}
+
+/* Phrase aversion perte */
+.choc-aversion{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.25);padding:24px 32px;max-width:680px;margin:32px auto 0;text-align:center;animation:fadeUp .4s .26s ease both}
+.choc-aversion p{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;font-weight:300}
+.choc-aversion strong{color:#E07070;font-weight:700}
+
+/* Gradient + CTA unlock */
+.choc-bottom{position:relative;max-width:680px;margin:0 auto}
+.choc-fade{height:180px;background:linear-gradient(to bottom,transparent,var(--navy));margin-top:-20px;pointer-events:none}
+
+/* Preview floue */
+.choc-preview{padding:0 24px;max-width:680px;margin:0 auto;filter:blur(6px);user-select:none;pointer-events:none;margin-top:32px}
+.choc-preview-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.choc-preview-label{font-size:13px;color:rgba(255,255,255,.2)}
+.choc-preview-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:rgba(255,255,255,.15)}
+
+/* CTA unlock */
+.choc-unlock{background:var(--beige);padding:40px 32px 52px;text-align:center;position:relative;z-index:5;margin-top:-60px}
+.choc-unlock-lock{width:64px;height:64px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:24px}
+.choc-unlock-title{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.choc-unlock-sub{font-size:14px;color:rgba(28,35,64,.55);max-width:460px;margin:0 auto 28px;line-height:1.65;font-weight:300}
+
+/* Ce qu'ils débloquent */
+.unlock-list{display:flex;flex-direction:column;gap:8px;max-width:420px;margin:0 auto 28px;text-align:left}
+.unlock-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(28,35,64,.7);line-height:1.5}
+.unlock-check{color:var(--vert);font-weight:700;flex-shrink:0;margin-top:1px}
+
+.btn-unlock{background:var(--navy);color:var(--beige-light);border:none;padding:18px 48px;font-family:'Lato',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .25s;width:100%;max-width:400px}
+.btn-unlock:hover{background:var(--navy-mid);transform:translateY(-1px)}
+.unlock-reassurance{font-size:11px;color:rgba(28,35,64,.35);margin-top:12px;letter-spacing:.05em}
+
+/* ══════════════════════════════════════
+   ── PAGE OPTIN (nouvelle) ──
+══════════════════════════════════════ */
+.optin-page{display:none;background:var(--beige-pale);min-height:100vh}
+.optin-page.active{display:block}
+
+.optin-inner{max-width:560px;margin:0 auto;padding:72px 24px 80px}
+
+.optin-header{text-align:center;margin-bottom:40px}
+.optin-logo-sm{font-family:'Playfair Display',serif;font-size:13px;color:var(--beige);opacity:.6;margin-bottom:24px}
+.optin-h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:12px}
+.optin-h2 em{font-style:italic;color:var(--beige)}
+.optin-sub{font-size:15px;color:var(--text-soft);line-height:1.7;font-weight:300;max-width:460px;margin:0 auto}
+
+/* Mini recap choc */
+.optin-recap{display:flex;gap:2px;margin:28px 0;background:var(--navy);padding:24px}
+.optin-recap-item{flex:1;text-align:center;padding:0 8px}
+.ori-val{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,24px);font-weight:700;margin-bottom:3px}
+.ori-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,185,154,.3)}
+
+/* Formulaire */
+.optin-card{background:#fff;border:1px solid var(--gris-border);padding:40px;box-shadow:0 2px 32px rgba(28,35,64,.05)}
+
+.fld{margin-bottom:16px}
 .fld-lbl{display:block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-soft);margin-bottom:7px}
-.fld-input{width:100%;background:var(--gris-card);border:1px solid var(--gris-border);padding:14px 16px;font-family:'Lato',sans-serif;font-size:15px;color:var(--navy);outline:none;transition:border-color .2s}
+.fld-input{width:100%;background:var(--gris-card);border:1px solid var(--gris-border);padding:14px 16px;font-family:'Lato',sans-serif;font-size:15px;color:var(--navy);outline:none;transition:border-color .2s;border-radius:0}
 .fld-input:focus{border-color:var(--navy)}
 .fld-input::placeholder{color:var(--text-muted)}
-.consent{background:var(--gris-card);border:1px solid var(--gris-border);padding:18px;display:flex;align-items:flex-start;gap:14px;cursor:pointer;transition:all .2s;margin:28px 0 6px}
+
+/* Ce qu'ils reçoivent */
+.optin-gets{background:var(--gris-card);border:1px solid var(--gris-border);padding:18px 20px;margin:20px 0}
+.optin-gets-title{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.optin-get-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-soft);line-height:1.55;margin-bottom:8px}
+.optin-get-item:last-child{margin-bottom:0}
+.ogi-check{color:var(--vert);font-weight:700;flex-shrink:0}
+
+/* Qualif closer */
+.closer-section{background:var(--gris-card);border:1px solid var(--gris-border);padding:18px 20px;margin:16px 0}
+.closer-title{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-soft);margin-bottom:12px}
+.closer-btns{display:flex;gap:8px;flex-wrap:wrap}
+.closer-btn{background:#fff;border:1px solid var(--gris-border);padding:10px 18px;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:var(--text-soft);cursor:pointer;transition:all .2s;border-radius:0}
+.closer-btn:hover{border-color:var(--navy);color:var(--navy)}
+.closer-btn.selected{background:var(--navy);color:var(--beige-light);border-color:var(--navy)}
+
+/* Consent */
+.consent{background:var(--gris-card);border:1px solid var(--gris-border);padding:16px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:all .2s;margin:20px 0 6px}
 .consent:hover,.consent.on{border-color:var(--navy)}
-.consent.on{background:rgba(28,35,64,.02)}
 .cbox{width:20px;height:20px;border:1.5px solid var(--gris-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:1px}
 .consent.on .cbox{background:var(--navy);border-color:var(--navy)}
 .cbox svg{display:none}
 .consent.on .cbox svg{display:block}
 .ctxt{font-size:13px;color:var(--text-soft);line-height:1.55;font-weight:300}
 .ctxt strong{color:var(--navy);font-weight:700}
-.cerr{font-size:11px;color:var(--rouge-soft);font-weight:700;letter-spacing:.05em;display:none;margin-bottom:14px}
+.cerr{font-size:11px;color:var(--rouge-soft);font-weight:700;letter-spacing:.05em;display:none;margin-bottom:10px}
 .cerr.show{display:block}
-.btn-reveal{width:100%;background:var(--navy);color:var(--beige-light);border:none;padding:20px;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .25s;margin-top:2px}
+
+.btn-reveal{width:100%;background:var(--navy);color:var(--beige-light);border:none;padding:20px;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .25s}
 .btn-reveal:hover{background:var(--navy-mid);transform:translateY(-1px)}
+
+.optin-reassurance{font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px;letter-spacing:.04em}
 
 /* ── RÉSULTATS ── */
 .res-wrap{display:none;background:var(--beige-pale)}
 .res-wrap.active{display:block}
-
 .res-hero{background:var(--navy);padding:88px 24px 72px;text-align:center;position:relative;overflow:hidden}
 .res-hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(201,185,154,.06) 0%,transparent 65%);pointer-events:none}
 .res-eyebrow{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,185,154,.4);margin-bottom:20px;animation:fadeUp .5s ease both}
@@ -132,12 +213,9 @@ h1 em{font-style:italic;color:var(--beige)}
 .res-hero h2 .acc{color:var(--beige);font-style:italic}
 .res-hero h2 .rge{color:#E08080}
 .res-hero-sub{font-size:16px;color:rgba(201,185,154,.45);max-width:520px;margin:0 auto;line-height:1.7;animation:fadeUp .5s .14s ease both}
-
 .res-body{max-width:900px;margin:0 auto;padding:56px 24px 100px}
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--beige);margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .sec-lbl::after{content:'';flex:1;height:1px;background:var(--gris-border)}
-
-/* Score */
 .score-wrap{display:flex;align-items:center;justify-content:center;gap:52px;background:var(--navy);padding:52px 48px;margin-bottom:28px;flex-wrap:wrap;animation:fadeUp .5s ease both}
 .ring-box{position:relative;width:160px;height:160px;flex-shrink:0}
 .ring-box svg{transform:rotate(-90deg);width:160px;height:160px}
@@ -149,8 +227,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .score-txt{color:#fff;max-width:320px}
 .score-txt h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:10px}
 .score-txt p{font-size:14px;color:rgba(201,185,154,.5);line-height:1.65}
-
-/* KPI grid */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
 .kpi{background:#fff;border:1px solid var(--gris-border);padding:24px 20px;position:relative;overflow:hidden;animation:fadeUp .5s ease both}
 .kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
@@ -163,8 +239,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .kpi.red .kpi-val{color:var(--rouge)}
 .kpi.green .kpi-val{color:var(--vert)}
 .kpi-sub{font-size:11px;color:var(--text-muted);margin-top:6px}
-
-/* Tableau comparaison */
 .cmp-block{background:#fff;border:1px solid var(--gris-border);padding:40px;margin-bottom:28px;animation:fadeUp .5s .08s ease both}
 .cmp-block h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:28px}
 .cmp-head{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:16px;padding-bottom:10px;border-bottom:2px solid var(--gris-border)}
@@ -177,8 +251,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .cmp-v.a{color:var(--rouge)}
 .cmp-v.o{color:var(--vert)}
 .pill{display:inline-flex;align-items:center;background:rgba(26,107,74,.08);color:var(--vert);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px}
-
-/* Funnel */
 .fnl-block{background:#fff;border:1px solid var(--gris-border);padding:40px;margin-bottom:28px;animation:fadeUp .5s .12s ease both}
 .fnl-block h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:8px}
 .fnl-block p{font-size:13px;color:var(--text-soft);margin-bottom:28px;font-weight:300}
@@ -197,8 +269,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .fnl-actual{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--rouge)}
 .fnl-opt{font-size:12px;color:var(--vert);font-weight:700;margin-top:2px}
 .fnl-rate{font-size:10px;color:var(--text-muted);margin-top:2px;font-weight:400}
-
-/* Pertes détail */
 .perte-block{background:var(--navy);padding:40px;margin-bottom:28px;animation:fadeUp .5s .16s ease both}
 .perte-block h3{font-family:'Playfair Display',serif;font-size:21px;color:#fff;margin-bottom:24px}
 .perte-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -207,8 +277,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .perte-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#E08080}
 .perte-row.total .perte-lbl{color:rgba(201,185,154,.8);font-weight:700;font-size:15px}
 .perte-row.total .perte-val{font-size:30px;color:#fff}
-
-/* Recos */
 .reco-block{background:#fff;border:1px solid var(--gris-border);padding:40px;margin-bottom:28px;animation:fadeUp .5s .2s ease both}
 .reco-block h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:24px}
 .reco-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--gris-border)}
@@ -216,146 +284,28 @@ h1 em{font-style:italic;color:var(--beige)}
 .reco-n{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--navy);opacity:.1;flex-shrink:0;line-height:1}
 .reco-body h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .reco-body p{font-size:13px;color:var(--text-soft);line-height:1.65;font-weight:300}
-
-/* CTA final */
 .cta-fin{background:var(--beige);padding:64px 48px;text-align:center;animation:fadeUp .5s .24s ease both}
 .cta-fin .ey{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(28,35,64,.4);margin-bottom:16px}
 .cta-fin h3{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.15}
 .cta-fin p{font-size:16px;color:rgba(28,35,64,.55);max-width:480px;margin:0 auto 36px;line-height:1.7;font-weight:300}
-.btn-fin{display:inline-flex;align-items:center;gap:12px;background:var(--navy);color:var(--beige-light);font-family:'Lato',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:20px 56px;text-decoration:none;transition:all .25s}
-.btn-fin:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 16px 40px rgba(28,35,64,.2)}
-
-/* Loader */
-.loader{display:none;position:fixed;inset:0;background:rgba(245,240,234,.96);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:20px}
-.loader.on{display:flex}
-.ld-spin{width:44px;height:44px;border:2px solid var(--gris-border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite}
-.ld-txt{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted)}
-
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-
-@media(max-width:700px){
-  .kpi-grid{grid-template-columns:1fr 1fr}
-  .q-card,.optin-card,.cmp-block,.fnl-block,.perte-block,.reco-block,.cta-fin{padding:28px 20px}
-  .audit-header{padding:18px 20px}
-  .cmp-head,.cmp-row{grid-template-columns:1.6fr 1fr 1fr}
-  .cmp-hcell:last-child,.cmp-v:last-child{display:none}
-  .fnl-row{grid-template-columns:100px 1fr auto}
-  .score-wrap{padding:32px 24px;gap:24px}
-}
-
-/* ── PRE-OPTIN REVEAL (chiffre choc avant optin) ── */
-.reveal-wrap{display:none;background:var(--navy);min-height:100vh}
-.reveal-wrap.active{display:block}
-.reveal-hero{padding:64px 24px 0;text-align:center;position:relative}
-.reveal-eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,185,154,.4);margin-bottom:16px}
-.reveal-hero h2{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,40px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:8px}
-.reveal-hero h2 .rge{color:#E07070}
-.reveal-hero p{font-size:15px;color:rgba(201,185,154,.5);max-width:500px;margin:0 auto 32px;line-height:1.65}
-
-/* Chiffre choc rouge */
-.choc-block{background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3);max-width:480px;margin:0 auto 40px;padding:32px;text-align:center}
-.choc-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(192,57,43,.7);margin-bottom:12px}
-.choc-amount{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,80px);font-weight:700;color:#E07070;line-height:1}
-.choc-sub{font-size:13px;color:rgba(201,185,154,.4);margin-top:8px}
-.choc-daily{display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap}
-.choc-pill{background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.2);padding:8px 16px;font-size:13px;color:#E07070;font-weight:700}
-
-/* Preview floue des résultats */
-.preview-section{max-width:860px;margin:0 auto;padding:0 24px 40px;position:relative}
-.preview-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,185,154,.3);margin-bottom:14px;margin-top:32px;display:flex;align-items:center;gap:10px}
-.preview-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
-
-.preview-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;filter:blur(5px);user-select:none;pointer-events:none}
-.preview-kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:18px 14px}
-.preview-kpi-lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,185,154,.3);margin-bottom:6px}
-.preview-kpi-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:rgba(255,255,255,.2)}
-
-.preview-bars{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:24px;margin-bottom:20px;filter:blur(4px);user-select:none;pointer-events:none}
-.preview-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.preview-bar-row:last-child{margin-bottom:0}
-.preview-bar-label{font-size:12px;color:rgba(255,255,255,.2);width:120px;flex-shrink:0}
-.preview-bar-track{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden}
-.preview-bar-fill-r{height:100%;background:rgba(192,57,43,.4);border-radius:1px}
-.preview-bar-fill-g{height:100%;background:rgba(39,174,96,.4);border-radius:1px}
-
-/* Lock overlay */
-.lock-overlay{position:relative;margin-top:-20px}
-.lock-gradient{position:absolute;top:-120px;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,var(--navy));pointer-events:none;z-index:2}
-.lock-cta{background:var(--beige);padding:36px 32px;text-align:center;position:relative;z-index:3;max-width:860px;margin:0 auto}
-.lock-cta-title{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--navy);margin-bottom:8px}
-.lock-cta-sub{font-size:14px;color:rgba(28,35,64,.6);margin-bottom:24px;line-height:1.55}
-.btn-unlock-reveal{background:var(--navy);color:var(--beige-light);border:none;padding:18px 48px;font-family:'Lato',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .25s;width:100%;max-width:400px}
-.btn-unlock-reveal:hover{background:var(--navy-mid);transform:translateY(-1px)}
-
-/* ── CLOSER QUESTIONS in optin ── */
-.closer-section{background:var(--gris-card);border:1px solid var(--gris-border);padding:20px;margin:20px 0;border-radius:2px}
-.closer-title{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-soft);margin-bottom:14px}
-.closer-btns{display:flex;gap:8px;flex-wrap:wrap}
-.closer-btn{background:#fff;border:1px solid var(--gris-border);padding:10px 18px;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;color:var(--text-soft);cursor:pointer;transition:all .2s;border-radius:2px}
-.closer-btn:hover{border-color:var(--navy);color:var(--navy)}
-.closer-btn.selected{background:var(--navy);color:var(--beige-light);border-color:var(--navy)}
-.closer-count{margin-top:12px;display:none}
-.closer-count.show{display:block}
-
-/* ── RESULTS - rouge/vert ── */
-.gauge-block{background:#fff;border:1px solid var(--gris-border);padding:40px;margin-bottom:28px;animation:fadeUp .5s ease both}
-.gauge-block h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:28px}
-.gauge-item{margin-bottom:24px}
-.gauge-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.gauge-label{font-size:14px;font-weight:700;color:var(--text-main)}
-.gauge-pct{font-family:'Playfair Display',serif;font-size:18px;font-weight:700}
-.gauge-pct.rouge{color:var(--rouge)}
-.gauge-pct.orange{color:#C87941}
-.gauge-pct.vert{color:var(--vert)}
-.gauge-track{height:14px;background:var(--gris-card);border-radius:2px;overflow:hidden;position:relative}
-.gauge-fill{height:100%;border-radius:2px;transition:width 1.8s cubic-bezier(.4,0,.2,1);width:0}
-.gauge-fill.rouge{background:linear-gradient(90deg,#8B1A1A,var(--rouge))}
-.gauge-fill.orange{background:linear-gradient(90deg,#7A4010,#C87941)}
-.gauge-fill.vert{background:linear-gradient(90deg,var(--vert),var(--vert-soft))}
-.gauge-bench{font-size:11px;color:var(--text-muted);margin-top:5px;display:flex;justify-content:space-between}
-.gauge-bench span{font-weight:700;color:var(--vert)}
-
-/* iClosed embed */
-.iclosed-block{background:var(--navy);padding:64px 24px;text-align:center}
-.iclosed-block .ey{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,185,154,.4);margin-bottom:16px}
-.iclosed-block h3{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.15}
-.iclosed-block p{font-size:15px;color:rgba(201,185,154,.45);max-width:480px;margin:0 auto 40px;line-height:1.65}
-
-@media(max-width:600px){
-  .preview-kpis{grid-template-columns:1fr 1fr}
-  .choc-daily{gap:8px}
-}
-
-/* ══ LEAK GAUGES ══ */
 .leak-section{max-width:900px;margin:0 auto;padding:0}
-
 .leak-header{background:var(--navy);padding:40px 48px 32px;margin-bottom:3px}
 .leak-header h3{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:#fff;margin-bottom:8px}
 .leak-header p{font-size:14px;color:rgba(201,185,154,.45);line-height:1.6;font-weight:300}
-
 .leak-total-bar{background:#0D1020;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;flex-wrap:wrap;gap:16px}
 .leak-total-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
 .leak-total-amount{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:700;color:#E05555;line-height:1}
 .leak-total-sub{font-size:12px;color:rgba(255,255,255,.25);margin-top:4px}
-
-/* Individual leak card */
 .leak-card{background:#fff;border-left:4px solid transparent;padding:28px 40px;margin-bottom:3px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;transition:border-color .3s}
 .leak-card.critical{border-left-color:#C0392B}
 .leak-card.warning{border-left-color:#C87941}
 .leak-card.good{border-left-color:#1A6B4A}
-
-.leak-card-left{}
 .leak-card-stage{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
 .leak-card.critical .leak-card-stage{color:#C0392B}
 .leak-card.warning .leak-card-stage{color:#C87941}
 .leak-card.good .leak-card-stage{color:#1A6B4A}
-
 .leak-card-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
 .leak-card-desc{font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:16px;font-weight:300}
-
-/* The filling gauge */
 .gauge-wrap{position:relative}
 .gauge-track{height:20px;background:#F0ECE6;border-radius:2px;overflow:hidden;position:relative}
 .gauge-actual{position:absolute;top:0;left:0;bottom:0;border-radius:2px;transition:width 2s cubic-bezier(.4,0,.2,1);width:0}
@@ -363,8 +313,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .gauge-labels{display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--text-muted)}
 .gauge-labels .g-actual{font-weight:700}
 .gauge-labels .g-optimal{color:var(--vert);font-weight:700}
-
-/* Right side — perte en euros */
 .leak-card-right{text-align:right;flex-shrink:0;min-width:140px}
 .leak-amount-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
 .leak-amount{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1}
@@ -372,8 +320,6 @@ h1 em{font-style:italic;color:var(--beige)}
 .leak-card.warning .leak-amount{color:#C87941}
 .leak-card.good .leak-amount{color:#1A6B4A}
 .leak-amount-sub{font-size:11px;color:var(--text-muted);margin-top:4px}
-
-/* Machine totale */
 .machine-block{background:var(--navy);padding:40px 48px;margin-bottom:3px}
 .machine-title{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,185,154,.4);margin-bottom:20px}
 .machine-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
@@ -385,13 +331,34 @@ h1 em{font-style:italic;color:var(--beige)}
 .machine-row .val-rouge{color:#E07070}
 .machine-row .val-beige{color:var(--beige)}
 .machine-row .val-vert{color:#5DBF8A}
+.iclosed-block{background:var(--navy);padding:64px 24px;text-align:center}
+.iclosed-block .ey{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,185,154,.4);margin-bottom:16px}
 
-@media(max-width:640px){
+/* Loader */
+.loader{display:none;position:fixed;inset:0;background:rgba(245,240,234,.96);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+.loader.on{display:flex}
+.ld-spin{width:44px;height:44px;border:2px solid var(--gris-border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite}
+.ld-txt{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes countUp{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+@media(max-width:700px){
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .q-card,.optin-card,.cmp-block,.fnl-block,.perte-block,.reco-block,.cta-fin{padding:28px 20px}
+  .audit-header{padding:18px 20px}
+  .cmp-head,.cmp-row{grid-template-columns:1.6fr 1fr 1fr}
+  .cmp-hcell:last-child,.cmp-v:last-child{display:none}
+  .fnl-row{grid-template-columns:100px 1fr auto}
+  .score-wrap{padding:32px 24px;gap:24px}
+  .choc-sub-nums{flex-direction:column}
   .leak-card{grid-template-columns:1fr;padding:24px 20px}
   .leak-card-right{text-align:left;min-width:auto}
   .leak-header,.leak-total-bar,.machine-block{padding:28px 20px}
+  .optin-recap{flex-direction:column;gap:2px}
 }
-
 </style>
 </head>
 <body>
@@ -403,23 +370,16 @@ h1 em{font-style:italic;color:var(--beige)}
     <div class="hero-logo-sep"></div>
     <div class="hero-logo-name">Sales Performance Blueprint™</div>
   </div>
-
   <div class="hero-tag">
     <div class="hero-tag-dot"></div>
     Diagnostic Gratuit · 3 minutes
   </div>
-
   <h1>Tu génères des leads.<br>Mais combien d'argent <em>disparaît</em><br>avant que ça signe ?</h1>
-
-  <p class="hero-sub">
-    La plupart des entrepreneurs pensent avoir un problème de leads. En réalité, ils perdent de l'argent entre le call et la décision. Renseigne tes chiffres réels — et découvre exactement combien.
-  </p>
-
+  <p class="hero-sub">La plupart des entrepreneurs pensent avoir un problème de leads. En réalité, ils perdent de l'argent entre le call et la décision. Renseigne tes chiffres réels — et découvre exactement combien.</p>
   <button class="cta-hero" onclick="startAudit()">
     Calculer mes pertes maintenant
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </button>
-
   <div class="trust-strip">
     <div class="trust-item"><div class="trust-sep"></div>Basé sur tes vrais chiffres</div>
     <div class="trust-item"><div class="trust-sep"></div>Résultat en 3 minutes</div>
@@ -445,8 +405,172 @@ h1 em{font-style:italic;color:var(--beige)}
   </div>
 </div>
 
+<!-- ══════════════════════════════════════
+     PAGE CHOC — NOUVELLE
+══════════════════════════════════════ -->
+<div class="choc-page" id="chocPage">
 
+  <div class="choc-top">
+    <p class="choc-eyebrow">Sales Performance Blueprint™ · Diagnostic terminé</p>
+    <h2 class="choc-title">Ton tunnel te coûte <span class="rge" id="choc-perte-mois">—</span> par mois.<br><em>Voici la réalité que personne ne te dit.</em></h2>
+    <p class="choc-sub">Ces chiffres sont calculés sur tes données réelles. Ce n'est pas une estimation générique.</p>
 
+    <!-- COMPTEUR PRINCIPAL -->
+    <div class="choc-counter-wrap">
+      <div class="choc-counter-label">💸 Argent perdu depuis que tu génères des leads</div>
+      <div class="choc-amount" id="choc-historique">—</div>
+      <div class="choc-amount-sub" id="choc-historique-sub">sur les <span id="choc-mois">—</span> derniers mois</div>
+    </div>
+
+    <!-- SOUS-CHIFFRES -->
+    <div class="choc-sub-nums">
+      <div class="csn">
+        <div class="csn-val" style="color:#E07070" id="csn-jour">—</div>
+        <div class="csn-label">perdu chaque jour</div>
+      </div>
+      <div class="csn">
+        <div class="csn-val" style="color:#E07070" id="csn-semaine">—</div>
+        <div class="csn-label">perdu chaque semaine</div>
+      </div>
+      <div class="csn">
+        <div class="csn-val" style="color:var(--beige)" id="csn-potentiel">—</div>
+        <div class="csn-label">potentiel récupérable</div>
+      </div>
+      <div class="csn">
+        <div class="csn-val" style="color:#5DBF8A" id="csn-optimise">—</div>
+        <div class="csn-label">CA mensuel optimisé</div>
+      </div>
+    </div>
+
+    <!-- FUITES PAR ÉTAPE -->
+    <div class="choc-leaks" style="padding:0 24px;max-width:680px;margin:40px auto 0">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,185,154,.3);margin-bottom:20px;display:flex;align-items:center;gap:10px">
+        Où ton argent disparaît exactement
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.05)"></span>
+      </div>
+      <div id="choc-leak-rows"></div>
+    </div>
+
+    <!-- PHRASE AVERSION À LA PERTE -->
+    <div class="choc-aversion" style="margin:32px auto 0">
+      <p id="choc-aversion-text">—</p>
+    </div>
+
+  </div>
+
+  <!-- PREVIEW FLOUE -->
+  <div class="choc-preview" style="padding:32px 24px 0;max-width:680px;margin:0 auto">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,185,154,.2);margin-bottom:16px">Ton plan d'action personnalisé — accès restreint</div>
+    <div class="choc-preview-row"><div class="choc-preview-label">Priorité #1 — Récupération immédiate</div><div class="choc-preview-val">+12 400€</div></div>
+    <div class="choc-preview-row"><div class="choc-preview-label">Action closing à implémenter cette semaine</div><div class="choc-preview-val">Script objections</div></div>
+    <div class="choc-preview-row"><div class="choc-preview-label">Levier no-show — protocole exact</div><div class="choc-preview-val">−71% no-shows</div></div>
+    <div class="choc-preview-row"><div class="choc-preview-label">Objectif taux de closing mois 1</div><div class="choc-preview-val">+18pts</div></div>
+  </div>
+
+  <!-- GRADIENT + CTA -->
+  <div style="height:120px;background:linear-gradient(to bottom,transparent,var(--navy));margin-top:-20px;pointer-events:none"></div>
+
+  <div class="choc-unlock">
+    <div class="choc-unlock-lock">🔒</div>
+    <div class="choc-unlock-title">Accède à ton plan d'action personnalisé</div>
+    <div class="choc-unlock-sub">Basé sur tes chiffres exacts — les 3 leviers prioritaires pour récupérer du cash dès cette semaine, dans l'ordre d'impact.</div>
+    <div class="unlock-list">
+      <div class="unlock-item"><span class="unlock-check">→</span>Les 3 actions à faire <strong>cette semaine</strong> pour récupérer du cash</div>
+      <div class="unlock-item"><span class="unlock-check">→</span>L'étape qui te coûte le plus cher — et comment la corriger</div>
+      <div class="unlock-item"><span class="unlock-check">→</span>Ton objectif de taux de closing réaliste à 30 jours</div>
+      <div class="unlock-item"><span class="unlock-check">→</span>Le plan complet envoyé par email immédiatement</div>
+    </div>
+    <button class="btn-unlock" onclick="goToOptin()">
+      Débloquer mon plan d'action →
+    </button>
+    <div class="unlock-reassurance">Gratuit · Sans engagement · Résultat immédiat</div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE OPTIN — NOUVELLE
+══════════════════════════════════════ -->
+<div class="optin-page" id="optinPage">
+  <div class="optin-inner">
+
+    <div class="optin-header">
+      <div class="optin-logo-sm">Sales Performance Blueprint™</div>
+      <h2 class="optin-h2">Ton plan d'action personnalisé<br><em>est prêt.</em></h2>
+      <p class="optin-sub">Entre tes coordonnées pour recevoir ton diagnostic complet et les 3 actions prioritaires basées sur tes chiffres exacts.</p>
+    </div>
+
+    <!-- Mini recap choc -->
+    <div class="optin-recap" id="optin-recap">
+      <div class="optin-recap-item">
+        <div class="ori-val" style="color:#E07070" id="or-perte">—</div>
+        <div class="ori-label">Perte / mois</div>
+      </div>
+      <div class="optin-recap-item">
+        <div class="ori-val" style="color:var(--beige)" id="or-historique">—</div>
+        <div class="ori-label">Perdu au total</div>
+      </div>
+      <div class="optin-recap-item">
+        <div class="ori-val" style="color:#5DBF8A" id="or-potentiel">—</div>
+        <div class="ori-label">Récupérable</div>
+      </div>
+    </div>
+
+    <div class="optin-card">
+
+      <!-- Ce qu'ils reçoivent -->
+      <div class="optin-gets">
+        <div class="optin-gets-title">Ce que tu reçois maintenant</div>
+        <div class="optin-get-item"><span class="ogi-check">✓</span>Ton diagnostic complet avec chaque fuite identifiée et chiffrée</div>
+        <div class="optin-get-item"><span class="ogi-check">✓</span>Les 3 actions prioritaires à faire cette semaine (dans l'ordre d'impact)</div>
+        <div class="optin-get-item"><span class="ogi-check">✓</span>Ton objectif de closing réaliste à 30 jours avec le chemin pour y arriver</div>
+      </div>
+
+      <div class="fld">
+        <label class="fld-lbl">Prénom</label>
+        <input class="fld-input" type="text" placeholder="Thomas" id="opt-prenom">
+      </div>
+      <div class="fld">
+        <label class="fld-lbl">Adresse email</label>
+        <input class="fld-input" type="email" placeholder="thomas@email.com" id="opt-email">
+      </div>
+      <div class="fld">
+        <label class="fld-lbl">Numéro de téléphone</label>
+        <input class="fld-input" type="tel" placeholder="ex: 06 12 34 56 78" id="opt-tel">
+      </div>
+      <div class="fld">
+        <label class="fld-lbl">Ton activité en 2 mots</label>
+        <input class="fld-input" type="text" placeholder="ex: Coach business, Freelance dev..." id="opt-activite">
+      </div>
+
+      <!-- Question qualif closer -->
+      <div class="closer-section">
+        <div class="closer-title">Tu as déjà un closer ou tu fais tes calls toi-même ?</div>
+        <div class="closer-btns">
+          <button class="closer-btn" onclick="selectCloser(this,'non')">Je prends mes calls de vente</button>
+          <button class="closer-btn" onclick="selectCloser(this,'oui')">J'ai un closer</button>
+          <button class="closer-btn" onclick="selectCloser(this,'recrutement')">Je recrute bientôt</button>
+        </div>
+      </div>
+
+      <div class="consent" id="consentBox" onclick="toggleConsent()">
+        <div class="cbox">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg>
+        </div>
+        <div class="ctxt">
+          J'accepte de recevoir mon plan d'action par email. <strong>Aucun spam</strong> — uniquement ton diagnostic et les ressources liées à ta situation.
+        </div>
+      </div>
+      <div class="cerr" id="consentErr">Tu dois accepter pour recevoir ton plan.</div>
+
+      <button class="btn-reveal" onclick="submitOptin()">
+        Recevoir mon plan d'action complet →
+      </button>
+      <div class="optin-reassurance">Gratuit · Sans engagement · Tu peux te désabonner à tout moment</div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ══ RÉSULTATS ══ -->
 <div class="res-wrap" id="resWrap">
@@ -455,9 +579,7 @@ h1 em{font-style:italic;color:var(--beige)}
     <h2>Votre tunnel vous coûte <span class="rge" id="rPerte">—</span> par mois<br><span class="acc" id="rRecup">—</span> de CA potentiel avec un système optimisé</h2>
     <p class="res-hero-sub">Voici exactement où ton argent disparaît — et ce que tu pourrais encaisser en plus chaque mois en optimisant chaque étape.</p>
   </div>
-
   <div class="res-body">
-    <!-- Score -->
     <div class="sec-lbl">Score de performance de ton tunnel</div>
     <div class="score-wrap">
       <div class="ring-box">
@@ -466,8 +588,6 @@ h1 em{font-style:italic;color:var(--beige)}
       </div>
       <div class="score-txt"><h3 id="scoreTitle">—</h3><p id="scoreDesc">—</p></div>
     </div>
-
-    <!-- KPIs -->
     <div class="sec-lbl" style="margin-top:36px">Impact financier en chiffres</div>
     <div class="kpi-grid">
       <div class="kpi red" style="animation-delay:.06s"><div class="kpi-ico">📉</div><div class="kpi-lbl">Perte mensuelle</div><div class="kpi-val" id="k1">—</div><div class="kpi-sub">CA manqué chaque mois</div></div>
@@ -475,8 +595,6 @@ h1 em{font-style:italic;color:var(--beige)}
       <div class="kpi gold" style="animation-delay:.14s"><div class="kpi-ico">💸</div><div class="kpi-lbl">Perdu sur 6 mois</div><div class="kpi-val" id="k3">—</div><div class="kpi-sub">argent déjà évaporé</div></div>
       <div class="kpi green" style="animation-delay:.18s"><div class="kpi-ico">💰</div><div class="kpi-lbl">Récupérable</div><div class="kpi-val" id="k4">—</div><div class="kpi-sub">potentiel à court terme</div></div>
     </div>
-
-    <!-- Comparaison actuel / optimisé -->
     <div class="sec-lbl">Votre tunnel : actuel vs optimisé</div>
     <div class="cmp-block">
       <h3>Ton système actuel vs un système optimisé — sur les mêmes leads</h3>
@@ -488,13 +606,10 @@ h1 em{font-style:italic;color:var(--beige)}
       </div>
       <div id="cmpRows"></div>
     </div>
-
-
-    <!-- Leak Gauges -->
     <div class="leak-section">
       <div class="leak-header">
         <h3>Voici exactement où ton argent disparaît</h3>
-        <p>Chaque étape de ton tunnel a été analysée. La jauge montre ton taux actuel (barre colorée) vs l'objectif optimal (ligne verte). Le montant à droite = ce que cette fuite te coûte chaque mois.</p>
+        <p>Chaque étape de ton tunnel a été analysée. La jauge montre ton taux actuel vs l'objectif optimal. Le montant à droite = ce que cette fuite te coûte chaque mois.</p>
       </div>
       <div class="leak-total-bar">
         <div>
@@ -509,27 +624,21 @@ h1 em{font-style:italic;color:var(--beige)}
         <div id="machineRows"></div>
       </div>
     </div>
-
-    <!-- Funnel visuel -->
     <div class="sec-lbl">Ton tunnel étape par étape</div>
     <div class="fnl-block">
       <h3>Où tu perds tes prospects — et ce que tu pourrais récupérer</h3>
-      <p>Chaque étape est une occasion de convertir — ou de perdre. En rouge, ta réalité. En vert, ce que le même volume de leads pourrait produire avec un système optimisé.</p>
+      <p>En rouge, ta réalité. En vert, ce que le même volume de leads pourrait produire avec un système optimisé.</p>
       <div class="fnl-legend">
         <div style="display:flex;align-items:center;gap:7px"><div class="ldot l-a"></div>Ton tunnel actuel</div>
         <div style="display:flex;align-items:center;gap:7px"><div class="ldot l-o"></div>Système optimisé</div>
       </div>
       <div id="fnlRows"></div>
     </div>
-
-    <!-- Pertes détaillées -->
     <div class="sec-lbl">Décomposition de vos pertes</div>
     <div class="perte-block">
       <h3>L'argent que tu laisses sur la table — chaque mois</h3>
       <div id="perteRows"></div>
     </div>
-
-    <!-- Cash perdu historique -->
     <div class="sec-lbl">L'argent qui dort depuis que tu as lancé</div>
     <div style="background:#fff;border:1px solid var(--gris-border);padding:40px;margin-bottom:28px;animation:fadeUp .5s ease both">
       <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:8px">Depuis le lancement de ton business</h3>
@@ -539,37 +648,27 @@ h1 em{font-style:italic;color:var(--beige)}
         <div id="cashHistorique" style="font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,56px);font-weight:700;color:var(--rouge);line-height:1">—</div>
         <div style="font-size:12px;color:var(--text-muted);margin-top:6px" id="cashHistSub">—</div>
       </div>
-      <!-- Jauge remplissage historique -->
       <div style="margin-bottom:8px;display:flex;justify-content:space-between;font-size:12px;color:var(--text-soft)">
         <span>Lancement</span><span id="moisHistLabel2">Aujourd'hui</span>
       </div>
       <div style="height:18px;background:var(--gris-card);border-radius:2px;overflow:hidden;position:relative">
         <div id="histBar" style="height:100%;background:linear-gradient(90deg,var(--rouge),#E07070);width:0;transition:width 2s cubic-bezier(.4,0,.2,1)"></div>
       </div>
-      <div style="font-size:11px;color:var(--text-muted);margin-top:8px">La barre représente l'accumulation des pertes mois après mois.</div>
     </div>
-
-    <!-- 3 étapes SPB -->
     <div class="sec-lbl">Ton plan de récupération en 3 étapes</div>
     <div id="spbSteps"></div>
-
-    <!-- CTA -->
     <div class="cta-fin">
       <p class="ey">Passez à l'action maintenant</p>
       <h3>Chaque mois avec un système non optimisé, c'est du CA qui part chez tes concurrents.</h3>
       <p>Ces chiffres sont basés sur tes données réelles. Un appel de 30 minutes suffit pour identifier ce qu'on corrige en priorité.</p>
     </div>
-
-    <!-- iClosed calendar embed -->
     <div class="iclosed-block">
       <p class="ey">La prochaine étape</p>
       <h3 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px">Réserve ton appel stratégique<br><em style="color:var(--beige);font-style:italic">avec Anouck</em></h3>
       <p style="font-size:15px;color:rgba(201,185,154,.45);max-width:500px;margin:0 auto 8px;line-height:1.7;font-weight:300">Ces chiffres sont basés sur tes données réelles. 30 minutes pour identifier ce qu'on corrige en priorité — et construire ton plan de récupération.</p>
       <p style="font-size:13px;color:rgba(201,185,154,.25);margin-bottom:36px">Pas de pitch. Juste une analyse honnête.</p>
-      <!-- iClosed inline widget begin -->
       <div class="iclosed-widget" data-url="https://app.iclosed.io/e/salesperf/audit-sales-perf-1" title="Audit Sales perf" style="width:100%;height:620px;max-width:800px;margin:0 auto;display:block"></div>
       <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
-      <!-- iClosed inline widget end -->
     </div>
   </div>
 </div>
@@ -581,101 +680,30 @@ h1 em{font-style:italic;color:var(--beige)}
 </div>
 
 <script>
-// ── CONFIG AIRTABLE (à remplacer) ──────────────────────
 const AT_KEY   = 'patr4JbhgmO6OY0dY.18e8d6466be161fbad07894039ce184e5acb3d99f53a49e79b541ab8416dbf99';
 const AT_BASE  = 'appKLiDRQbaL8m0xJ';
 const AT_TABLE = 'Table 1';
-// ───────────────────────────────────────────────────────
 
-// ── BENCHMARKS B2B (moyennes marché) ───────────────────
 const B = {
-  bookRate:    0.15,   // 15% des leads bookent un call
-  showRate:    0.70,   // 70% des calls bookés se présentent
-  pitchRate:   0.85,   // 85% des calls pris mènent à un pitch
-  closeRate:   0.25,   // 25% de closing sur calls pitchés
-  collectRate: 0.80,   // 80% du contracté est collecté
-  // Cibles optimisées
-  bookRateOpt:    0.22,
-  showRateOpt:    0.83,
-  pitchRateOpt:   0.92,
-  closeRateOpt:   0.38,
-  collectRateOpt: 0.94,
+  bookRate:.15, showRate:.70, pitchRate:.85, closeRate:.25, collectRate:.80,
+  bookRateOpt:.22, showRateOpt:.83, pitchRateOpt:.92, closeRateOpt:.38, collectRateOpt:.94,
 };
 
-// ── QUESTIONS ──────────────────────────────────────────
 const QS = [
-  {
-    id: 'leads',
-    title: 'En moyenne, combien de leads as-tu par mois ?',
-    hint: "Toutes sources confondues — contenu, ads, DM, recommandations. C'est le point de départ de ton tunnel. Chaque lead non converti a un coût caché.",
-    badge: '#',
-    placeholder: 'ex : 80',
-    tunnel: 0,
-  },
-  {
-    id: 'bookes',
-    title: 'Sur ces leads, combien de calls ont été bookés en moyenne ?',
-    hint: "Chaque lead qui ne book pas = argent qui dort. Ce taux révèle la force de ton offre de découverte.",
-    badge: '#',
-    placeholder: 'ex : 18',
-    tunnel: 1,
-  },
-  {
-    id: 'pris',
-    title: 'Sur ces calls bookés, combien ont été réellement honorés ?',
-    hint: "Un no-show = un deal mort. C'est souvent ici que les entrepreneurs perdent le plus sans s'en rendre compte.",
-    badge: '#',
-    placeholder: 'ex : 13',
-    tunnel: 2,
-  },
-  {
-    id: 'pitches',
-    title: 'Sur ces calls pris, combien ont été pitchés ?',
-    hint: "Si tous tes calls ne mènent pas à un pitch, tu passes du temps à éduquer des gens qui ne signeront jamais. C'est du CA fantôme.",
-    badge: '#',
-    placeholder: 'ex : 11',
-    tunnel: 3,
-  },
-  {
-    id: 'closes',
-    title: 'Sur ces calls pitchés, combien as-tu closés ?',
-    hint: "C'est ici que tout se joue. Chaque 'je réfléchis' non traité = un deal perdu. Ce chiffre révèle la vraie performance de ton système de vente.",
-    badge: '#',
-    placeholder: 'ex : 3',
-    tunnel: 4,
-  },
-  {
-    id: 'prix',
-    title: 'Quel est le prix de ton offre ?',
-    hint: "C'est le multiplicateur de tout. Un taux de closing amélioré de 10% sur ce prix change tout à tes revenus mensuels.",
-    badge: '€',
-    placeholder: 'ex : 3 500',
-    tunnel: -1,
-  },
-  {
-    id: 'collecte',
-    title: 'En moyenne, combien de cash as-tu collecté par mois ?',
-    hint: "La différence entre ce qui est signé et ce qui est encaissé = l'argent qui dort. Ce chiffre est souvent une surprise.",
-    badge: '€',
-    placeholder: 'ex : 8 000',
-    tunnel: -1,
-  },
-  {
-    id: 'mois_business',
-    title: 'Tu as commencé ton business quand ?',
-    hint: "On va calculer combien tu as perdu depuis que tu génères des leads — le cash qui aurait dû rentrer mais qui est resté dans la machine.",
-    badge: '#',
-    placeholder: 'ex : 18 (mois)',
-    unit: 'mois',
-    tunnel: -1,
-  },
+  { id:'leads',    title:'En moyenne, combien de leads as-tu par mois ?',             hint:"Toutes sources confondues — contenu, ads, DM, recommandations. C'est le point de départ de ton tunnel. Chaque lead non converti a un coût caché.", badge:'#', placeholder:'ex : 80', tunnel:0 },
+  { id:'bookes',   title:'Sur ces leads, combien de calls ont été bookés en moyenne ?', hint:"Chaque lead qui ne book pas = argent qui dort. Ce taux révèle la force de ton offre de découverte.", badge:'#', placeholder:'ex : 18', tunnel:1 },
+  { id:'pris',     title:'Sur ces calls bookés, combien ont été réellement honorés ?',  hint:"Un no-show = un deal mort. C'est souvent ici que les entrepreneurs perdent le plus sans s'en rendre compte.", badge:'#', placeholder:'ex : 13', tunnel:2 },
+  { id:'pitches',  title:'Sur ces calls pris, combien ont été pitchés ?',              hint:"Si tous tes calls ne mènent pas à un pitch, tu passes du temps à éduquer des gens qui ne signeront jamais. C'est du CA fantôme.", badge:'#', placeholder:'ex : 11', tunnel:3 },
+  { id:'closes',   title:'Sur ces calls pitchés, combien as-tu closés ?',              hint:"C'est ici que tout se joue. Chaque 'je réfléchis' non traité = un deal perdu. Ce chiffre révèle la vraie performance de ton système de vente.", badge:'#', placeholder:'ex : 3', tunnel:4 },
+  { id:'prix',     title:'Quel est le prix de ton offre ?',                            hint:"C'est le multiplicateur de tout. Un taux de closing amélioré de 10% sur ce prix change tout à tes revenus mensuels.", badge:'€', placeholder:'ex : 3 500', tunnel:-1 },
+  { id:'collecte', title:'En moyenne, combien de cash as-tu collecté par mois ?',      hint:"La différence entre ce qui est signé et ce qui est encaissé = l'argent qui dort.", badge:'€', placeholder:'ex : 8 000', tunnel:-1 },
+  { id:'mois_business', title:'Tu as commencé ton business quand ?',                  hint:"On va calculer combien tu as perdu depuis que tu génères des leads — le cash qui aurait dû rentrer.", badge:'#', placeholder:'ex : 18 (mois)', tunnel:-1 },
 ];
 
 const TUNNEL_LABELS = ['Leads','Calls bookés','Calls pris','Calls pitchés','Calls closés'];
+let step = 0, ans = {}, cachedR = null, closerVal = '', consentOn = false;
 
-let step = 0, ans = {}, optin = {};
-
-// ── NAVIGATION ─────────────────────────────────────────
+// ── AUDIT ──
 function startAudit() {
   document.getElementById('hero').style.display = 'none';
   document.getElementById('auditWrap').classList.add('active');
@@ -683,51 +711,41 @@ function startAudit() {
 }
 
 function renderQ() {
-  const q   = QS[step];
-  const tot = QS.length;
+  const q = QS[step], tot = QS.length;
   const pct = Math.round(step / tot * 100);
-  document.getElementById('stepInfo').textContent  = `Étape ${step + 1} / ${tot}`;
-  document.getElementById('progFill').style.width  = pct + '%';
+  document.getElementById('stepInfo').textContent = `Étape ${step+1} / ${tot}`;
+  document.getElementById('progFill').style.width = pct + '%';
   document.getElementById('btnBack').style.display = step > 0 ? 'block' : 'none';
   const fwd = document.getElementById('btnFwd');
   const isLast = step === tot - 1;
   fwd.innerHTML = isLast
     ? 'Voir mes résultats <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
     : 'Continuer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-
-  // Tunnel context
   let tcHtml = '';
   if (q.tunnel >= 0) {
-    TUNNEL_LABELS.forEach((lbl, i) => {
+    TUNNEL_LABELS.forEach((lbl,i) => {
       const cls = i < q.tunnel ? 'done' : i === q.tunnel ? 'active' : '';
       tcHtml += `<div class="tc-step ${cls}">${lbl}</div>`;
     });
   }
-
-  // Live calc pour closes
   const cur = ans[q.id] !== undefined ? ans[q.id] : '';
-  const liveCalc = q.id === 'closes' && cur !== '' && ans.prix
-    ? `<div class="live-calc" id="lc" style="display:block">CA contracté calculé : <strong>${fEur(cur * ans.prix)}</strong> (${cur} closes × ${fEur(ans.prix)})</div>`
-    : q.id === 'prix' && cur !== '' && ans.closes
-    ? `<div class="live-calc" id="lc" style="display:block">CA contracté calculé : <strong>${fEur(ans.closes * cur)}</strong> (${ans.closes} closes × ${fEur(cur)})</div>`
+  const liveCalc = q.id==='closes'&&cur!==''&&ans.prix ? `<div class="live-calc" id="lc" style="display:block">CA contracté calculé : <strong>${fEur(cur*ans.prix)}</strong></div>`
+    : q.id==='prix'&&cur!==''&&ans.closes ? `<div class="live-calc" id="lc" style="display:block">CA contracté calculé : <strong>${fEur(ans.closes*cur)}</strong></div>`
     : `<div class="live-calc" id="lc"></div>`;
-
   document.getElementById('qWrap').innerHTML = `
     <div class="q-card">
-      <div class="q-eyebrow">Question ${step + 1} sur ${tot}</div>
+      <div class="q-eyebrow">Question ${step+1} sur ${tot}</div>
       ${tcHtml ? `<div class="tunnel-context">${tcHtml}</div>` : ''}
       <div class="q-title">${q.title}</div>
       <div class="q-hint">${q.hint}</div>
       <div class="input-shell">
         <div class="input-badge">${q.badge}</div>
-        <input class="q-input" id="qInp" type="number" placeholder="${q.placeholder}"
-          value="${cur}" oninput="onInput()" onkeydown="onKey(event)" autocomplete="off">
+        <input class="q-input" id="qInp" type="number" placeholder="${q.placeholder}" value="${cur}" oninput="onInput()" onkeydown="onKey(event)" autocomplete="off">
       </div>
       ${liveCalc}
-    </div>
-  `;
+    </div>`;
   fwd.disabled = !(cur !== '' && parseFloat(cur) >= 0);
-  setTimeout(() => { const el = document.getElementById('qInp'); if (el) el.focus(); }, 60);
+  setTimeout(() => { const el = document.getElementById('qInp'); if(el) el.focus(); }, 60);
 }
 
 function onInput() {
@@ -735,390 +753,363 @@ function onInput() {
   const q = QS[step];
   ans[q.id] = v === '' ? '' : parseFloat(v);
   document.getElementById('btnFwd').disabled = !(v !== '' && parseFloat(v) >= 0);
-  // Live calc
   const lc = document.getElementById('lc');
   if (lc) {
-    if (q.id === 'closes' && v && ans.prix) {
-      lc.style.display = 'block';
-      lc.innerHTML = `CA contracté calculé : <strong>${fEur(parseFloat(v) * ans.prix)}</strong> (${v} closes × ${fEur(ans.prix)})`;
-    } else if (q.id === 'prix' && v && ans.closes) {
-      lc.style.display = 'block';
-      lc.innerHTML = `CA contracté calculé : <strong>${fEur(ans.closes * parseFloat(v))}</strong> (${ans.closes} closes × ${fEur(parseFloat(v))})`;
-    }
+    if (q.id==='closes'&&v&&ans.prix) { lc.style.display='block'; lc.innerHTML=`CA contracté : <strong>${fEur(parseFloat(v)*ans.prix)}</strong>`; }
+    else if (q.id==='prix'&&v&&ans.closes) { lc.style.display='block'; lc.innerHTML=`CA contracté : <strong>${fEur(ans.closes*parseFloat(v))}</strong>`; }
   }
 }
-
-function onKey(e) { if (e.key === 'Enter') goNext(); }
+function onKey(e) { if(e.key==='Enter') goNext(); }
 
 function goNext() {
   const v = document.getElementById('qInp').value;
-  if (v === '' || isNaN(parseFloat(v))) return;
+  if (v===''||isNaN(parseFloat(v))) return;
   ans[QS[step].id] = parseFloat(v);
-  if (step < QS.length - 1) { step++; renderQ(); }
+  if (step < QS.length-1) { step++; renderQ(); }
   else {
     document.getElementById('auditWrap').classList.remove('active');
-    renderResults(compute());
+    const r = compute();
+    cachedR = r;
+    renderChocPage(r);
   }
 }
+function goBack() { if(step>0){step--;renderQ();} }
 
-function goBack() { if (step > 0) { step--; renderQ(); } }
-
-// ── CALCULS ────────────────────────────────────────────
+// ── CALCULS ──
 function compute() {
-  const leads    = ans.leads    || 0;
-  const bookes   = ans.bookes   || 0;
-  const pris     = ans.pris     || 0;
-  const pitches  = ans.pitches  || 0;
-  const closes   = ans.closes   || 0;
-  const prix     = ans.prix     || 1000;
-  const collecte = ans.collecte || 0;
-
-  // CA contracté = closes × prix (calculé, pas saisi)
+  const leads=ans.leads||0, bookes=ans.bookes||0, pris=ans.pris||0;
+  const pitches=ans.pitches||0, closes=ans.closes||0;
+  const prix=ans.prix||1000, collecte=ans.collecte||0;
   const contracte = closes * prix;
-
-  // Taux réels
-  const tBook    = leads   > 0 ? bookes  / leads   : B.bookRate;
-  const tShow    = bookes  > 0 ? pris    / bookes  : B.showRate;
-  const tPitch   = pris    > 0 ? pitches / pris    : B.pitchRate;
-  const tClose   = pitches > 0 ? closes  / pitches : B.closeRate;
-  const tCollect = contracte > 0 ? collecte / contracte : B.collectRate;
-
-  // Scénario optimisé (on améliore les taux faibles jusqu'aux benchmarks)
-  const tBookO    = Math.min(0.5,  Math.max(tBook,    B.bookRateOpt));
-  const tShowO    = Math.min(0.95, Math.max(tShow,    B.showRateOpt));
-  const tPitchO   = Math.min(0.98, Math.max(tPitch,   B.pitchRateOpt));
-  const tCloseO   = Math.min(0.70, Math.max(tClose,   B.closeRateOpt));
-  const tCollectO = Math.min(0.99, Math.max(tCollect, B.collectRateOpt));
-
-  const bookesO   = Math.round(leads   * tBookO);
-  const prisO     = Math.round(bookesO * tShowO);
-  const pitchesO  = Math.round(prisO   * tPitchO);
-  const closesO   = Math.round(pitchesO * tCloseO);
-  const contracteO= closesO * prix;
-  const caO       = Math.round(contracteO * tCollectO);
-
-  const perteMens  = Math.max(0, Math.round(caO - collecte));
-  const perteJour  = Math.round(perteMens / 30);
-  const perte6mois = perteMens * 6;
-  const recuperable= Math.round(perteMens * 0.6);
-
-  // Sous-scores (comparé aux benchmarks)
-  const sBook  = Math.min(100, tBook    / B.bookRateOpt    * 100);
-  const sShow  = Math.min(100, tShow    / B.showRateOpt    * 100);
-  const sPitch = Math.min(100, tPitch   / B.pitchRateOpt   * 100);
-  const sClose = Math.min(100, tClose   / B.closeRateOpt   * 100);
-  const sCollec= Math.min(100, tCollect / B.collectRateOpt * 100);
-  const score  = Math.round((sBook + sShow + sPitch + sClose + sCollec) / 5);
-
-  // Cash perdu historique
-  const mois = ans.mois_business || 12;
-  const cashPerduHistorique = Math.round(perteMens * Math.min(mois, 36));
-
+  const tBook=leads>0?bookes/leads:B.bookRate, tShow=bookes>0?pris/bookes:B.showRate;
+  const tPitch=pris>0?pitches/pris:B.pitchRate, tClose=pitches>0?closes/pitches:B.closeRate;
+  const tCollect=contracte>0?collecte/contracte:B.collectRate;
+  const tBookO=Math.min(.5,Math.max(tBook,B.bookRateOpt)), tShowO=Math.min(.95,Math.max(tShow,B.showRateOpt));
+  const tPitchO=Math.min(.98,Math.max(tPitch,B.pitchRateOpt)), tCloseO=Math.min(.70,Math.max(tClose,B.closeRateOpt));
+  const tCollectO=Math.min(.99,Math.max(tCollect,B.collectRateOpt));
+  const bookesO=Math.round(leads*tBookO), prisO=Math.round(bookesO*tShowO);
+  const pitchesO=Math.round(prisO*tPitchO), closesO=Math.round(pitchesO*tCloseO);
+  const contracteO=closesO*prix, caO=Math.round(contracteO*tCollectO);
+  const perteMens=Math.max(0,Math.round(caO-collecte));
+  const perteJour=Math.round(perteMens/30), perte6mois=perteMens*6;
+  const recuperable=Math.round(perteMens*.6);
+  const sBook=Math.min(100,tBook/B.bookRateOpt*100), sShow=Math.min(100,tShow/B.showRateOpt*100);
+  const sPitch=Math.min(100,tPitch/B.pitchRateOpt*100), sClose=Math.min(100,tClose/B.closeRateOpt*100);
+  const sCollec=Math.min(100,tCollect/B.collectRateOpt*100);
+  const score=Math.round((sBook+sShow+sPitch+sClose+sCollec)/5);
+  const mois=ans.mois_business||12;
+  const cashPerduHistorique=Math.round(perteMens*Math.min(mois,36));
+  const perteNoShow=Math.round((bookes-pris)*prix*(tClose)*(tCollect));
+  const pertePitch=Math.round((pris-pitches)*prix*(tClose)*(tCollect));
+  const perteClose=Math.round(pitches*Math.max(0,tCloseO-tClose)*prix*(tCollect));
+  const perteCollecte=Math.round(contracte*Math.max(0,1-tCollect));
+  const perteBooking=Math.round((leads*Math.max(0,tBookO-tBook))*prix*(tClose)*(tCollect));
+  const perteTotale=perteNoShow+pertePitch+perteClose+perteCollecte+perteBooking;
   return {
-    leads, bookes, pris, pitches, closes, prix, contracte, collecte,
-    mois, cashPerduHistorique,
-    bookesO, prisO, pitchesO, closesO, contracteO, caO,
-    tBook:p(tBook), tShow:p(tShow), tPitch:p(tPitch), tClose:p(tClose), tCollect:p(tCollect),
-    tBookO:p(tBookO), tShowO:p(tShowO), tPitchO:p(tPitchO), tCloseO:p(tCloseO), tCollectO:p(tCollectO),
-    perteMens, perteJour, perte6mois, recuperable, score,
-    sBook:Math.round(sBook), sShow:Math.round(sShow), sPitch:Math.round(sPitch),
-    sClose:Math.round(sClose), sCollec:Math.round(sCollec),
+    leads,bookes,pris,pitches,closes,prix,contracte,collecte,mois,cashPerduHistorique,
+    bookesO,prisO,pitchesO,closesO,contracteO,caO,
+    tBook:p(tBook),tShow:p(tShow),tPitch:p(tPitch),tClose:p(tClose),tCollect:p(tCollect),
+    tBookO:p(tBookO),tShowO:p(tShowO),tPitchO:p(tPitchO),tCloseO:p(tCloseO),tCollectO:p(tCollectO),
+    perteMens,perteJour,perte6mois,recuperable,score,
+    sBook:Math.round(sBook),sShow:Math.round(sShow),sPitch:Math.round(sPitch),sClose:Math.round(sClose),sCollec:Math.round(sCollec),
+    perteNoShow,pertePitch,perteClose,perteCollecte,perteBooking,perteTotale
   };
 }
-function p(v) { return Math.round(v * 100); }
+function p(v){return Math.round(v*100)}
 
-// ── AFFICHAGE ──────────────────────────────────────────
-function renderResults(r) {
+// ══════════════════════════════════════
+// PAGE CHOC
+// ══════════════════════════════════════
+function renderChocPage(r) {
+  document.getElementById('loader').classList.add('on');
+  setTimeout(() => {
+    document.getElementById('loader').classList.remove('on');
+    document.getElementById('chocPage').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+
+    // Titres
+    document.getElementById('choc-perte-mois').textContent = fEur(r.perteMens);
+    document.getElementById('choc-historique').textContent = fEur(r.cashPerduHistorique);
+    document.getElementById('choc-mois').textContent = r.mois;
+    document.getElementById('choc-historique-sub').textContent = `sur tes ${r.mois} derniers mois d'activité`;
+
+    // Sous-chiffres
+    document.getElementById('csn-jour').textContent = fEur(r.perteJour);
+    document.getElementById('csn-semaine').textContent = fEur(r.perteJour * 7);
+    document.getElementById('csn-potentiel').textContent = fEur(r.recuperable);
+    document.getElementById('csn-optimise').textContent = fEur(r.caO);
+
+    // Fuites par étape
+    const leakData = [
+      { icon:'📵', title:'No-shows', desc:`${r.bookes - r.pris} prospects bookés n'ont pas honoré leur call`, amount: r.perteNoShow },
+      { icon:'🎤', title:'Calls non pitchés', desc:`${r.pris - r.pitches} calls pris sans proposition d'offre`, amount: r.pertePitch },
+      { icon:'🤝', title:'Closing sous-performant', desc:`Ton taux de closing (${r.tClose}%) vs optimal (${r.tCloseO}%)`, amount: r.perteClose },
+      { icon:'💳', title:'Cash non collecté', desc:`${100-r.tCollect}% de ton CA signé n'est pas encaissé`, amount: r.perteCollecte },
+    ].filter(l => l.amount > 0);
+
+    document.getElementById('choc-leak-rows').innerHTML = leakData.map(l => `
+      <div class="choc-leak-row">
+        <div class="choc-leak-icon">${l.icon}</div>
+        <div class="choc-leak-info">
+          <div class="choc-leak-title">${l.title}</div>
+          <div class="choc-leak-desc">${l.desc}</div>
+        </div>
+        <div class="choc-leak-amount">${fEur(l.amount)}</div>
+      </div>
+    `).join('');
+
+    // Phrase aversion à la perte — personnalisée selon le profil
+    const aversionText = r.cashPerduHistorique > 50000
+      ? `Sur tes ${r.mois} derniers mois, tu as laissé partir <strong>${fEur(r.cashPerduHistorique)}</strong>. C'est l'équivalent de ${Math.round(r.cashPerduHistorique / r.prix)} clients que tu n'as pas closés alors que les leads étaient là. Ce n'est pas un problème de volume — c'est un problème de système.`
+      : r.perteMens > 3000
+      ? `Chaque jour sans corriger ça, tu perds <strong>${fEur(r.perteJour)}</strong>. Dans 30 jours, ce sera encore <strong>${fEur(r.perteMens)}</strong> de moins dans ton compte. Les leads entrent. L'argent sort par les fuites.`
+      : `Ton tunnel convertit — mais pas à son plein potentiel. Les <strong>${fEur(r.perteMens)}</strong> que tu perds chaque mois, ce ne sont pas des leads que tu n'as pas. Ce sont des deals que tu as failli closer.`;
+
+    document.getElementById('choc-aversion-text').innerHTML = aversionText;
+
+    // Récap optin
+    document.getElementById('or-perte').textContent = fEur(r.perteMens);
+    document.getElementById('or-historique').textContent = fEur(r.cashPerduHistorique);
+    document.getElementById('or-potentiel').textContent = fEur(r.recuperable);
+    document.getElementById('choc-perte-mois').textContent = fEur(r.perteMens);
+
+  }, 1800);
+}
+
+// ── NAVIGATION CHOC → OPTIN ──
+function goToOptin() {
+  document.getElementById('chocPage').classList.remove('active');
+  document.getElementById('optinPage').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── OPTIN ──
+function selectCloser(btn, val) {
+  closerVal = val;
+  document.querySelectorAll('.closer-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function toggleConsent() {
+  consentOn = !consentOn;
+  document.getElementById('consentBox').classList.toggle('on', consentOn);
+  if (consentOn) document.getElementById('consentErr').classList.remove('show');
+}
+
+function submitOptin() {
+  const prenom = document.getElementById('opt-prenom').value.trim();
+  const email = document.getElementById('opt-email').value.trim();
+  const tel = document.getElementById('opt-tel').value.trim();
+  const activite = document.getElementById('opt-activite').value.trim();
+
+  if (!email || !email.includes('@')) {
+    document.getElementById('opt-email').focus();
+    document.getElementById('opt-email').style.borderColor = '#C0392B';
+    return;
+  }
+  if (!consentOn) {
+    document.getElementById('consentErr').classList.add('show');
+    return;
+  }
+
+  // Sauvegarder lead
+  const leadData = {
+    prenom, email, tel, activite,
+    hasCloser: closerVal || 'non_renseigne',
+    perteMens: cachedR?.perteMens || 0,
+    cashHistorique: cachedR?.cashPerduHistorique || 0,
+    score: cachedR?.score || 0,
+    leads: ans.leads, bookes: ans.bookes, pris: ans.pris,
+    pitches: ans.pitches, closes: ans.closes, prix: ans.prix,
+    collecte: ans.collecte, mois: ans.mois_business,
+  };
+
+  silentSend(leadData);
+
+  // Afficher les résultats complets
+  document.getElementById('optinPage').classList.remove('active');
+  renderResults(cachedR, prenom);
+}
+
+// ── RÉSULTATS COMPLETS ──
+function renderResults(r, prenom) {
   document.getElementById('loader').classList.add('on');
   setTimeout(() => {
     document.getElementById('loader').classList.remove('on');
     document.getElementById('resWrap').classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top:0,behavior:'smooth'});
 
-    document.getElementById('rName').textContent = 'ton tunnel';
+    document.getElementById('rName').textContent = prenom || 'ton tunnel';
     document.getElementById('rPerte').textContent = fEur(r.perteMens);
     document.getElementById('rRecup').textContent = fEur(r.caO);
 
-    // Score ring
-    document.getElementById('ringNum').textContent = r.score;
     const rf = document.getElementById('ringFill');
-    rf.style.stroke = r.score < 35 ? '#C0392B' : r.score < 60 ? '#C9A84C' : '#1A6B4A';
-    setTimeout(() => { rf.style.strokeDashoffset = 452 - (452 * r.score / 100); }, 200);
-    document.getElementById('scoreTitle').textContent =
-      r.score < 35 ? 'Système en danger' :
-      r.score < 55 ? 'Sous-performant' :
-      r.score < 75 ? 'À optimiser' : 'Bien structuré';
-    document.getElementById('scoreDesc').textContent =
-      r.score < 35 ? 'Des fuites critiques à chaque étape. Tu travailles pour générer des leads que ton système ne convertit pas. C\'est le scénario le plus coûteux.' :
-      r.score < 55 ? 'Ton tunnel convertit, mais laisse partir une grande partie de son potentiel. Des ajustements précis pourraient doubler ta conversion sans un seul lead supplémentaire.' :
-      r.score < 75 ? 'Ton système est structuré. Mais il reste des fuites identifiables — et chaque point de conversion gagné se multiplie sur tout ton volume.' :
-      'Ton système performe bien. L\'enjeu maintenant : le rendre duplicable et indépendant de ton énergie pour scaler sans chaos.';
+    document.getElementById('ringNum').textContent = r.score;
+    rf.style.stroke = r.score<35?'#C0392B':r.score<60?'#C9A84C':'#1A6B4A';
+    setTimeout(()=>{ rf.style.strokeDashoffset = 452-(452*r.score/100); },200);
+    document.getElementById('scoreTitle').textContent = r.score<35?'Système en danger':r.score<55?'Sous-performant':r.score<75?'À optimiser':'Bien structuré';
+    document.getElementById('scoreDesc').textContent = r.score<35?"Des fuites critiques à chaque étape. Tu travailles pour générer des leads que ton système ne convertit pas.":r.score<55?"Ton tunnel convertit, mais laisse partir une grande partie de son potentiel.":r.score<75?"Ton système est structuré. Mais des fuites identifiables restent — chaque point gagné se multiplie.":"Ton système performe bien. L'enjeu : le rendre duplicable et indépendant de ton énergie.";
 
-    // KPIs
     document.getElementById('k1').textContent = fEur(r.perteMens);
     document.getElementById('k2').textContent = fEur(r.perteJour);
     document.getElementById('k3').textContent = fEur(r.perte6mois);
     document.getElementById('k4').textContent = fEur(r.recuperable);
 
-    // Tableau comparaison
     const cmpData = [
-      { l: 'Taux de booking (leads → calls)',    a: r.tBook+'%',    o: r.tBookO+'%',    g: '+'+Math.max(0, r.tBookO - r.tBook)+'%' },
-      { l: 'Show rate (présence au call)',        a: r.tShow+'%',    o: r.tShowO+'%',    g: '+'+Math.max(0, r.tShowO - r.tShow)+'%' },
-      { l: 'Taux de pitch (call → proposition)', a: r.tPitch+'%',   o: r.tPitchO+'%',   g: '+'+Math.max(0, r.tPitchO - r.tPitch)+'%' },
-      { l: 'Taux de closing',                    a: r.tClose+'%',   o: r.tCloseO+'%',   g: '+'+Math.max(0, r.tCloseO - r.tClose)+'%' },
-      { l: 'Taux de collecte',                   a: r.tCollect+'%', o: r.tCollectO+'%', g: '+'+Math.max(0, r.tCollectO - r.tCollect)+'%' },
-      { l: 'CA collecté mensuel',                a: fEur(r.collecte), o: fEur(r.caO),    g: fEur(r.perteMens) },
+      {l:'Taux de booking',       a:r.tBook+'%',    o:r.tBookO+'%',    g:'+'+Math.max(0,r.tBookO-r.tBook)+'%'},
+      {l:'Show rate',             a:r.tShow+'%',    o:r.tShowO+'%',    g:'+'+Math.max(0,r.tShowO-r.tShow)+'%'},
+      {l:'Taux de pitch',         a:r.tPitch+'%',   o:r.tPitchO+'%',   g:'+'+Math.max(0,r.tPitchO-r.tPitch)+'%'},
+      {l:'Taux de closing',       a:r.tClose+'%',   o:r.tCloseO+'%',   g:'+'+Math.max(0,r.tCloseO-r.tClose)+'%'},
+      {l:'Taux de collecte',      a:r.tCollect+'%', o:r.tCollectO+'%', g:'+'+Math.max(0,r.tCollectO-r.tCollect)+'%'},
+      {l:'CA collecté mensuel',   a:fEur(r.collecte), o:fEur(r.caO),   g:fEur(r.perteMens)},
     ];
-    document.getElementById('cmpRows').innerHTML = cmpData.map(c =>
+    document.getElementById('cmpRows').innerHTML = cmpData.map(c=>
       `<div class="cmp-row"><div class="cmp-lbl">${c.l}</div><div class="cmp-v a">${c.a}</div><div class="cmp-v o">${c.o}</div><div class="cmp-v"><span class="pill">↑ ${c.g}</span></div></div>`
     ).join('');
 
+    document.getElementById('leakTotal').textContent = fEur(r.perteTotale||r.perteMens);
 
-    // ── LEAK GAUGES ──
-    // Calcul perte par étape
-    const perteNoShow   = Math.round((r.bookes - r.pris)    * r.prix * (r.tClose/100) * (r.tCollect/100));
-    const pertePitch    = Math.round((r.pris - r.pitches)   * r.prix * (r.tClose/100) * (r.tCollect/100));
-    const perteClose    = Math.round(r.pitches * Math.max(0, r.tCloseO/100 - r.tClose/100) * r.prix * (r.tCollect/100));
-    const perteCollecte = Math.round(r.contracte * Math.max(0, 1 - r.tCollect/100));
-    const perteBooking  = Math.round((r.leads * Math.max(0, r.tBookO/100 - r.tBook/100)) * r.prix * (r.tClose/100) * (r.tCollect/100));
-    const perteTotale   = perteNoShow + pertePitch + perteClose + perteCollecte + perteBooking;
+    const cardClass=v=>v<45?'critical':v<72?'warning':'good';
+    const cardTag=v=>v<45?'🔴 Fuite critique':v<72?'🟠 À optimiser':'🟢 Performant';
+    const gaugeColor=v=>v<45?'#C0392B':v<72?'#C87941':'#1A6B4A';
 
-    // Update total header
-    document.getElementById('leakTotal').textContent = fEur(perteTotale || r.perteMens);
-
-    const cardClass = v => v < 45 ? 'critical' : v < 72 ? 'warning' : 'good';
-    const cardTag   = v => v < 45 ? '🔴 Fuite critique' : v < 72 ? '🟠 À optimiser' : '🟢 Performant';
-    const gaugeColor= v => v < 45 ? '#C0392B' : v < 72 ? '#C87941' : '#1A6B4A';
-    const gaugeLight= v => v < 45 ? 'rgba(192,57,43,.15)' : v < 72 ? 'rgba(200,121,65,.15)' : 'rgba(26,107,74,.15)';
-
-    const leaks = [
-      {
-        stage: 'Étape 1 — Génération & Booking',
-        title: 'Tes leads ne bookent pas assez',
-        desc: `Sur ${r.leads} leads, seulement ${r.bookes} bookent un call (${r.tBook}%). Le benchmark optimal est ${r.tBookO}%. Chaque point gagné ici = plus de CA sans un euro de budget supplémentaire.`,
-        actual: r.tBook, optimal: r.tBookO, max: 100,
-        perte: perteBooking,
-        perteLabel: 'CA non capté / mois',
-      },
-      {
-        stage: 'Étape 2 — No-Show',
-        title: 'Des calls bookés qui ne se présentent pas',
-        desc: `${r.bookes - r.pris} prospects sur ${r.bookes} n'ont pas honoré leur call (show rate : ${r.tShow}%). Un no-show = un deal mort. C'est de l'argent déjà perdu avant même d'ouvrir la bouche.`,
-        actual: r.tShow, optimal: r.tShowO, max: 100,
-        perte: perteNoShow,
-        perteLabel: 'Perdu en no-shows / mois',
-      },
-      {
-        stage: 'Étape 3 — Qualification & Pitch',
-        title: 'Des calls pris qui ne mènent pas à un pitch',
-        desc: `${r.pris - r.pitches} calls pris sur ${r.pris} n'ont pas abouti à une proposition (${r.tPitch}%). Si tu passes du temps sur des calls qui ne pitchent pas, tu éduques des gens qui ne signeront jamais.`,
-        actual: r.tPitch, optimal: r.tPitchO, max: 100,
-        perte: pertePitch,
-        perteLabel: 'Perdu en calls non pitchés',
-      },
-      {
-        stage: 'Étape 4 — Conversion & Closing',
-        title: 'Ton taux de closing laisse du CA sur la table',
-        desc: `Tu closes ${r.tClose}% de tes calls pitchés. Le benchmark optimisé est ${r.tCloseO}%. Chaque point de closing gagné sur ${r.pitches} calls = ${fEur(Math.round(r.pitches * 0.01 * r.prix))} de CA supplémentaire.`,
-        actual: r.tClose, optimal: r.tCloseO, max: 100,
-        perte: perteClose,
-        perteLabel: 'CA manqué au closing / mois',
-      },
-      {
-        stage: 'Étape 5 — Cash collecté',
-        title: "L'argent signé qui ne rentre pas",
-        desc: `Tu collectes ${r.tCollect}% de ton CA contracté (${fEur(r.contracte)} signé → ${fEur(r.collecte)} encaissé). La différence de ${fEur(perteCollecte)} dort quelque part — mauvais suivi, paiements ratés, conditions floues.`,
-        actual: r.tCollect, optimal: r.tCollectO, max: 100,
-        perte: perteCollecte,
-        perteLabel: 'Cash non encaissé / mois',
-      },
+    const leaks=[
+      {stage:'Étape 1 — Génération & Booking',title:'Tes leads ne bookent pas assez',desc:`Sur ${r.leads} leads, seulement ${r.bookes} bookent un call (${r.tBook}%). Le benchmark optimal est ${r.tBookO}%.`,actual:r.tBook,optimal:r.tBookO,max:100,perte:r.perteBooking,perteLabel:'CA non capté / mois'},
+      {stage:'Étape 2 — No-Show',title:'Des calls bookés qui ne se présentent pas',desc:`${r.bookes-r.pris} prospects n'ont pas honoré leur call (show rate : ${r.tShow}%). Un no-show = un deal mort.`,actual:r.tShow,optimal:r.tShowO,max:100,perte:r.perteNoShow,perteLabel:'Perdu en no-shows / mois'},
+      {stage:'Étape 3 — Qualification & Pitch',title:'Des calls pris qui ne mènent pas à un pitch',desc:`${r.pris-r.pitches} calls sur ${r.pris} n'ont pas abouti à une proposition (${r.tPitch}%).`,actual:r.tPitch,optimal:r.tPitchO,max:100,perte:r.pertePitch,perteLabel:'Perdu en calls non pitchés'},
+      {stage:'Étape 4 — Closing',title:'Ton taux de closing laisse du CA sur la table',desc:`Tu closes ${r.tClose}% de tes calls pitchés. Le benchmark optimisé est ${r.tCloseO}%.`,actual:r.tClose,optimal:r.tCloseO,max:100,perte:r.perteClose,perteLabel:'CA manqué au closing / mois'},
+      {stage:'Étape 5 — Cash collecté',title:"L'argent signé qui ne rentre pas",desc:`Tu collectes ${r.tCollect}% de ton CA contracté (${fEur(r.contracte)} signé → ${fEur(r.collecte)} encaissé).`,actual:r.tCollect,optimal:r.tCollectO,max:100,perte:r.perteCollecte,perteLabel:'Cash non encaissé / mois'},
     ];
 
-    document.getElementById('leakCards').innerHTML = leaks.map(lk => {
-      const cls   = cardClass(lk.actual / lk.max * 100);
-      const pctA  = Math.min(100, Math.round(lk.actual / lk.max * 100));
-      const pctO  = Math.min(100, Math.round(lk.optimal / lk.max * 100));
-      const col   = gaugeColor(pctA);
-      const bg    = gaugeLight(pctA);
-      const hasLoss = lk.perte > 0;
-      return `
-      <div class="leak-card ${cls}">
+    document.getElementById('leakCards').innerHTML = leaks.map(lk=>{
+      const cls=cardClass(lk.actual/lk.max*100), pctA=Math.min(100,Math.round(lk.actual/lk.max*100));
+      const pctO=Math.min(100,Math.round(lk.optimal/lk.max*100)), col=gaugeColor(pctA);
+      const hasLoss=lk.perte>0;
+      return `<div class="leak-card ${cls}">
         <div class="leak-card-left">
           <div class="leak-card-stage">${cardTag(pctA)} · ${lk.stage}</div>
           <div class="leak-card-title">${lk.title}</div>
           <div class="leak-card-desc">${lk.desc}</div>
           <div class="gauge-wrap">
-            <div class="gauge-track" style="background:#F0ECE6">
-              <div class="gauge-actual" data-w="${pctA}" style="background:${col}"></div>
-              <div class="gauge-optimal-line" data-left="${pctO}"></div>
-            </div>
-            <div class="gauge-labels">
-              <span class="g-actual" style="color:${col}">${lk.actual}% actuel</span>
-              <span class="g-optimal">▲ ${lk.optimal}% objectif</span>
-            </div>
+            <div class="gauge-track"><div class="gauge-actual" data-w="${pctA}" style="background:${col}"></div><div class="gauge-optimal-line" data-left="${pctO}"></div></div>
+            <div class="gauge-labels"><span class="g-actual" style="color:${col}">${lk.actual}% actuel</span><span class="g-optimal">▲ ${lk.optimal}% objectif</span></div>
           </div>
         </div>
         <div class="leak-card-right">
           <div class="leak-amount-label">${lk.perteLabel}</div>
-          <div class="leak-amount">${hasLoss ? fEur(lk.perte) : '✓'}</div>
-          <div class="leak-amount-sub">${hasLoss ? 'chaque mois' : 'sous contrôle'}</div>
+          <div class="leak-amount">${hasLoss?fEur(lk.perte):'✓'}</div>
+          <div class="leak-amount-sub">${hasLoss?'chaque mois':'sous contrôle'}</div>
         </div>
       </div>`;
     }).join('');
 
-    // Machine totale
     document.getElementById('machineRows').innerHTML = `
       <div class="machine-row"><div class="machine-row-label">Leads entrants / mois</div><div class="machine-row-val val-beige">${r.leads}</div></div>
-      <div class="machine-row"><div class="machine-row-label">Perdu au booking</div><div class="machine-row-val val-rouge">− ${fEur(perteBooking)}</div></div>
-      <div class="machine-row"><div class="machine-row-label">Perdu au no-show</div><div class="machine-row-val val-rouge">− ${fEur(perteNoShow)}</div></div>
-      <div class="machine-row"><div class="machine-row-label">Perdu à la qualification</div><div class="machine-row-val val-rouge">− ${fEur(pertePitch)}</div></div>
-      <div class="machine-row"><div class="machine-row-label">Perdu au closing</div><div class="machine-row-val val-rouge">− ${fEur(perteClose)}</div></div>
-      <div class="machine-row"><div class="machine-row-label">Perdu à la collecte</div><div class="machine-row-val val-rouge">− ${fEur(perteCollecte)}</div></div>
-      <div class="machine-row total"><div class="machine-row-label">💸 Total dans la machine</div><div class="machine-row-val">${fEur(perteTotale || r.perteMens)}</div></div>
-    `;
+      <div class="machine-row"><div class="machine-row-label">Perdu au booking</div><div class="machine-row-val val-rouge">− ${fEur(r.perteBooking)}</div></div>
+      <div class="machine-row"><div class="machine-row-label">Perdu au no-show</div><div class="machine-row-val val-rouge">− ${fEur(r.perteNoShow)}</div></div>
+      <div class="machine-row"><div class="machine-row-label">Perdu à la qualification</div><div class="machine-row-val val-rouge">− ${fEur(r.pertePitch)}</div></div>
+      <div class="machine-row"><div class="machine-row-label">Perdu au closing</div><div class="machine-row-val val-rouge">− ${fEur(r.perteClose)}</div></div>
+      <div class="machine-row"><div class="machine-row-label">Perdu à la collecte</div><div class="machine-row-val val-rouge">− ${fEur(r.perteCollecte)}</div></div>
+      <div class="machine-row total"><div class="machine-row-label">💸 Total dans la machine</div><div class="machine-row-val">${fEur(r.perteTotale||r.perteMens)}</div></div>`;
 
-    setTimeout(() => {
-      document.querySelectorAll('.gauge-actual').forEach(el => { el.style.width = el.dataset.w + '%'; });
-      document.querySelectorAll('.gauge-optimal-line').forEach(el => { el.style.left = el.dataset.left + '%'; });
-    }, 400);
+    setTimeout(()=>{
+      document.querySelectorAll('.gauge-actual').forEach(el=>{el.style.width=el.dataset.w+'%'});
+      document.querySelectorAll('.gauge-optimal-line').forEach(el=>{el.style.left=el.dataset.left+'%'});
+    },400);
 
-    // Funnel visuel
-    const maxV = r.leads || 1;
-    const fnlData = [
-      { l:'Leads',          s:'entrée dans ton tunnel',   a:r.leads,   o:r.leads,    rate:'100%' },
-      { l:'Calls bookés',   s:'booking rate',             a:r.bookes,  o:r.bookesO,  rate:r.tBook+'%' },
-      { l:'Calls pris',     s:'show rate',                a:r.pris,    o:r.prisO,    rate:r.tShow+'%' },
-      { l:'Calls pitchés',  s:'taux de pitch',            a:r.pitches, o:r.pitchesO, rate:r.tPitch+'%' },
-      { l:'Clients closés', s:'taux de closing',          a:r.closes,  o:r.closesO,  rate:r.tClose+'%' },
+    const maxV=r.leads||1;
+    const fnlData=[
+      {l:'Leads',s:'entrée dans ton tunnel',a:r.leads,o:r.leads,rate:'100%'},
+      {l:'Calls bookés',s:'booking rate',a:r.bookes,o:r.bookesO,rate:r.tBook+'%'},
+      {l:'Calls pris',s:'show rate',a:r.pris,o:r.prisO,rate:r.tShow+'%'},
+      {l:'Calls pitchés',s:'taux de pitch',a:r.pitches,o:r.pitchesO,rate:r.tPitch+'%'},
+      {l:'Clients closés',s:'taux de closing',a:r.closes,o:r.closesO,rate:r.tClose+'%'},
     ];
-    document.getElementById('fnlRows').innerHTML = fnlData.map(f => {
-      const wA = Math.min(100, Math.round(f.a / maxV * 100));
-      const wO = Math.min(100, Math.round(f.o / maxV * 100));
-      return `
-        <div class="fnl-row">
-          <div><div class="fnl-label">${f.l}</div><div class="fnl-sub">${f.s}</div></div>
-          <div class="bar-track">
-            <div class="bar-o" data-w="${wO}"></div>
-            <div class="bar-a" data-w="${wA}"></div>
-          </div>
-          <div class="fnl-nums">
-            <div class="fnl-actual">${f.a}</div>
-            <div class="fnl-opt">→ ${f.o}</div>
-            <div class="fnl-rate">${f.rate}</div>
-          </div>
-        </div>`;
+    document.getElementById('fnlRows').innerHTML = fnlData.map(f=>{
+      const wA=Math.min(100,Math.round(f.a/maxV*100)), wO=Math.min(100,Math.round(f.o/maxV*100));
+      return `<div class="fnl-row"><div><div class="fnl-label">${f.l}</div><div class="fnl-sub">${f.s}</div></div><div class="bar-track"><div class="bar-o" data-w="${wO}"></div><div class="bar-a" data-w="${wA}"></div></div><div class="fnl-nums"><div class="fnl-actual">${f.a}</div><div class="fnl-opt">→ ${f.o}</div><div class="fnl-rate">${f.rate}</div></div></div>`;
     }).join('');
-    setTimeout(() => {
-      document.querySelectorAll('.bar-o').forEach(el => { el.style.width = el.dataset.w + '%'; });
-      document.querySelectorAll('.bar-a').forEach(el => { el.style.width = el.dataset.w + '%'; });
-    }, 300);
+    setTimeout(()=>{
+      document.querySelectorAll('.bar-o').forEach(el=>{el.style.width=el.dataset.w+'%'});
+      document.querySelectorAll('.bar-a').forEach(el=>{el.style.width=el.dataset.w+'%'});
+    },300);
 
-    // Pertes détaillées — tClose et tCollect sont en %, on divise par 100
-    const showRateLoss  = Math.round((r.bookes - r.pris)    * r.prix * (r.tClose/100) * (r.tCollect/100));
-    const pitchLoss     = Math.round((r.pris - r.pitches)   * r.prix * (r.tClose/100) * (r.tCollect/100));
-    const closeLoss     = Math.round((r.pitches * Math.max(0, r.tCloseO/100 - r.tClose/100)) * r.prix * (r.tCollect/100));
-    const collectLoss   = Math.round(r.contracte * Math.max(0, 1 - r.tCollect/100));
+    const showRateLoss=Math.round((r.bookes-r.pris)*r.prix*(r.tClose/100)*(r.tCollect/100));
+    const pitchLoss=Math.round((r.pris-r.pitches)*r.prix*(r.tClose/100)*(r.tCollect/100));
+    const closeLoss=Math.round(r.pitches*Math.max(0,r.tCloseO/100-r.tClose/100)*r.prix*(r.tCollect/100));
+    const collectLoss=Math.round(r.contracte*Math.max(0,1-r.tCollect/100));
     document.getElementById('perteRows').innerHTML = `
-      <div class="perte-row"><div class="perte-lbl">Perdu sur le no-show (${r.bookes - r.pris} calls non présentés)</div><div class="perte-val">${fEur(showRateLoss)}</div></div>
-      <div class="perte-row"><div class="perte-lbl">Perdu sur les calls non pitchés (${r.pris - r.pitches} calls)</div><div class="perte-val">${fEur(pitchLoss)}</div></div>
-      <div class="perte-row"><div class="perte-lbl">Perdu par sous-performance au closing (${r.tClose}% vs ${r.tCloseO}% optimal)</div><div class="perte-val">${fEur(closeLoss)}</div></div>
-      <div class="perte-row"><div class="perte-lbl">Perdu sur la collecte (${100 - r.tCollect}% non encaissé)</div><div class="perte-val">${fEur(collectLoss)}</div></div>
-      <div class="perte-row total"><div class="perte-lbl">⚡ Perte totale mensuelle estimée</div><div class="perte-val">${fEur(r.perteMens)}</div></div>
-    `;
+      <div class="perte-row"><div class="perte-lbl">Perdu sur le no-show (${r.bookes-r.pris} calls)</div><div class="perte-val">${fEur(showRateLoss)}</div></div>
+      <div class="perte-row"><div class="perte-lbl">Perdu sur les calls non pitchés</div><div class="perte-val">${fEur(pitchLoss)}</div></div>
+      <div class="perte-row"><div class="perte-lbl">Perdu par sous-performance au closing</div><div class="perte-val">${fEur(closeLoss)}</div></div>
+      <div class="perte-row"><div class="perte-lbl">Perdu sur la collecte</div><div class="perte-val">${fEur(collectLoss)}</div></div>
+      <div class="perte-row total"><div class="perte-lbl">⚡ Perte totale mensuelle</div><div class="perte-val">${fEur(r.perteMens)}</div></div>`;
 
-    // ── CASH PERDU HISTORIQUE ──
     document.getElementById('perteHistLabel').textContent = fEur(r.perteMens);
     document.getElementById('moisLabel').textContent = r.mois;
     document.getElementById('cashHistorique').textContent = fEur(r.cashPerduHistorique);
     document.getElementById('cashHistSub').textContent = `${r.mois} mois × ${fEur(r.perteMens)}/mois = ${fEur(r.cashPerduHistorique)} d'argent qui aurait dû rentrer`;
     document.getElementById('moisHistLabel2').textContent = `Mois ${r.mois}`;
-    setTimeout(() => {
-      const pct = Math.min(100, Math.round(r.mois / 36 * 100));
-      document.getElementById('histBar').style.width = pct + '%';
-    }, 500);
+    setTimeout(()=>{ document.getElementById('histBar').style.width = Math.min(100,Math.round(r.mois/36*100))+'%'; },500);
 
-    // ── 3 ÉTAPES SPB ──
-    const steps = [
-      {
-        num: '01',
-        color: '#C0392B',
-        tag: 'Urgence immédiate',
-        title: 'Récupérer le cash perdu sur les derniers mois',
-        body: `Tu as ${fEur(r.cashPerduHistorique)} qui aurait dû rentrer depuis le lancement. Une partie est récupérable maintenant : anciens prospects non convertis, base dormante, clients à recontacter. Avant tout autre chose, on va chercher ce cash.`,
-        actions: ['Réactiver les prospects non convertis des 90 derniers jours', 'Relancer les deals perdus sur objection prix ou timing', 'Identifier les clients existants avec potentiel upsell'],
-      },
-      {
-        num: '02',
-        color: '#C87941',
-        tag: 'Structure & Système',
-        title: 'Structurer pour que les fuites disparaissent',
-        body: `Ton tunnel perd ${fEur(r.perteMens)} par mois. On colmate les fuites avec les bons outils : préqualification des leads, follow-up automatisé pour réduire les no-shows, script de closing rodé, process de collecte verrouillé.`,
-        actions: ['Mettre en place un système de préqualification des leads', 'Créer une séquence de follow-up pour réduire les no-shows', 'Structurer un script de closing avec traitement des objections'],
-      },
-      {
-        num: '03',
-        color: '#1A6B4A',
-        tag: 'Scale & Délégation',
-        title: 'Investir et scaler avec un système duplicable',
-        body: `Une fois le système en place, chaque euro investi produit un retour prévisible. Tu recrutes un closer sans scaler le chaos, tu investis en ads avec confiance — parce que tu sais exactement ce que ta machine convertit.`,
-        actions: ['Définir les KPI pour piloter et déléguer les calls', 'Construire le process recrutement et onboarding closer', 'Calculer le budget acquisition rentable selon ton taux de conversion'],
-      },
+    const steps=[
+      {num:'01',color:'#C0392B',tag:'Urgence immédiate',title:'Récupérer le cash perdu sur les derniers mois',body:`Tu as ${fEur(r.cashPerduHistorique)} qui aurait dû rentrer depuis le lancement. Une partie est récupérable maintenant.`,actions:['Réactiver les prospects non convertis des 90 derniers jours','Relancer les deals perdus sur objection prix ou timing','Identifier les clients existants avec potentiel upsell']},
+      {num:'02',color:'#C87941',tag:'Structure & Système',title:'Structurer pour que les fuites disparaissent',body:`Ton tunnel perd ${fEur(r.perteMens)} par mois. On colmate les fuites avec les bons process.`,actions:['Mettre en place un système de préqualification des leads','Créer une séquence de follow-up pour réduire les no-shows','Structurer un script de closing avec traitement des objections']},
+      {num:'03',color:'#1A6B4A',tag:'Scale & Délégation',title:'Investir et scaler avec un système duplicable',body:'Une fois le système en place, chaque euro investi produit un retour prévisible.',actions:['Définir les KPI pour piloter et déléguer les calls','Construire le process recrutement et onboarding closer','Calculer le budget acquisition rentable selon ton taux de conversion']},
     ];
-
-    document.getElementById('spbSteps').innerHTML = steps.map(s => `
-      <div style="background:#fff;border:1px solid var(--gris-border);border-left:4px solid ${s.color};padding:36px 40px;margin-bottom:12px;animation:fadeUp .5s ease both">
+    document.getElementById('spbSteps').innerHTML = steps.map(s=>`
+      <div style="background:#fff;border:1px solid var(--gris-border);border-left:4px solid ${s.color};padding:36px 40px;margin-bottom:12px">
         <div style="display:flex;align-items:flex-start;gap:24px">
           <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:${s.color};opacity:.15;line-height:1;flex-shrink:0">${s.num}</div>
           <div style="flex:1">
             <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${s.color};margin-bottom:6px">${s.tag}</div>
             <h4 style="font-family:'Playfair Display',serif;font-size:clamp(17px,2.5vw,22px);font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.25">${s.title}</h4>
             <p style="font-size:14px;color:var(--text-soft);line-height:1.7;font-weight:300;margin-bottom:20px">${s.body}</p>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              ${s.actions.map(a => `<div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-main)"><span style="color:${s.color};font-weight:700;flex-shrink:0;margin-top:1px">→</span>${a}</div>`).join('')}
-            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">${s.actions.map(a=>`<div style="display:flex;align-items:flex-start;gap:10px;font-size:13px"><span style="color:${s.color};font-weight:700;flex-shrink:0">→</span>${a}</div>`).join('')}</div>
           </div>
         </div>
-      </div>
-    `).join('');
+      </div>`).join('');
 
   }, 2200);
 }
 
-// ── AIRTABLE SILENCIEUX ────────────────────────────────
+// ── AIRTABLE ──
 async function silentSend(d) {
-  if (AT_KEY === 'TON_API_KEY_AIRTABLE') return;
-  // Uniquement les colonnes visibles dans Airtable
+  if (!AT_KEY || AT_KEY.startsWith('TON_')) return;
   const fields = {
-    'Prenom':     d.prenom     || '',
-    'Nom':        d.nom        || '',
-    'Email':      d.email      || '',
-    'Téléphone':  d.tel        || '',
-    'Entreprise': d.entreprise || '',
-    'Has Closer': d.hasCloser  || 'non',
+    'Prenom':     d.prenom    || '',
+    'Nom':        d.nom       || '',
+    'Email':      d.email     || '',
+    'Téléphone': d.tel       || '',
+    'Entreprise': d.activite  || '',
+    'Has Closer': d.hasCloser || 'non',
   };
-  console.log('Sending to Airtable:', JSON.stringify(fields));
+  console.log('[Airtable] Envoi en cours...', JSON.stringify(fields));
   try {
     const resp = await fetch('https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE), {
       method: 'POST',
+      mode: 'cors',
       headers: { 'Authorization': 'Bearer ' + AT_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({ fields }),
     });
     const json = await resp.json();
     if (!resp.ok) {
-      console.error('Airtable error:', resp.status, JSON.stringify(json));
+      console.error('[Airtable] Erreur', resp.status, JSON.stringify(json));
     } else {
-      console.log('Airtable OK:', json.id);
+      console.log('[Airtable] OK — id:', json.id);
     }
-  } catch(e) { console.error('Airtable fetch error:', e); }
+  } catch(e) {
+    console.error('[Airtable] Fetch echoue:', e);
+  }
 }
 
-// ── FORMAT ─────────────────────────────────────────────
+// ── FORMAT ──
 function fEur(n) {
-  n = Math.round(n || 0);
-  if (n >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + ' M€';
-  if (n >= 10000)   return Math.round(n/1000) + ' k€';
-  if (n >= 1000)    return (n/1000).toFixed(1).replace('.',',') + ' k€';
-  return n.toLocaleString('fr-FR') + ' €';
+  n = Math.round(n||0);
+  if(n>=1000000) return (n/1000000).toFixed(1).replace('.',',')+'M€';
+  if(n>=10000) return Math.round(n/1000)+'k€';
+  if(n>=1000) return (n/1000).toFixed(1).replace('.',',')+'k€';
+  return n.toLocaleString('fr-FR')+'€';
 }
 </script>
 </body>
