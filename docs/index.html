@@ -1168,23 +1168,25 @@ function renderResults(r, prenom) {
 // ── ÉTAPE 1 : Créer l'enregistrement avec les données de l'audit ──
 async function silentCreate(r) {
   if (!AT_KEY || AT_KEY.startsWith('TON_')) return;
+  const now = new Date().toISOString();
   const fields = {
-    'Source':               AFF_SOURCE       || 'Direct',
-    'Leads Mois':           r.leads          || 0,
-    'Calls Bookes':         r.bookes         || 0,
-    'Calls Pris':           r.pris           || 0,
-    'Calls Pitches':        r.pitches        || 0,
-    'Closes':               r.closes         || 0,
-    'Prix Offre':           r.prix           || 0,
-    'CA Contracte':         r.contracte      || 0,
-    'CA Collecte':          r.collecte       || 0,
-    'Show Rate':            r.tShow          || 0,
-    'Close Rate':           r.tClose         || 0,
-    'Collecte Rate':        r.tCollect       || 0,
-    'Perte Mensuelle':      r.perteMens      || 0,
-    'Score':                r.score          || 0,
-    'Mois Business':        r.mois           || 0,
-    'Cash Perdu Historique':r.cashPerduHistorique || 0,
+    'Source':                AFF_SOURCE            || 'Direct',
+    'Date':                  now,
+    'Leads Mois':            r.leads               || 0,
+    'Calls Bookes':          r.bookes              || 0,
+    'Calls Pris':            r.pris                || 0,
+    'Calls Pitches':         r.pitches             || 0,
+    'Closes':                r.closes              || 0,
+    'Prix Offre':            r.prix                || 0,
+    'CA Contracte':          r.contracte           || 0,
+    'CA Collecte':           r.collecte            || 0,
+    'Show Rate':             r.tShow               || 0,
+    'Close Rate':            r.tClose              || 0,
+    'Collecte Rate':         r.tCollect            || 0,
+    'Perte Mensuelle':       r.perteMens           || 0,
+    'Score':                 r.score               || 0,
+    'Mois Business':         r.mois                || 0,
+    'Cash Perdu Historique': r.cashPerduHistorique || 0,
   };
   console.log('[Airtable] Création audit...', JSON.stringify(fields));
   try {
@@ -1207,7 +1209,7 @@ async function silentSend(d) {
     'Prenom':     d.prenom    || '',
     'Nom':        d.nom       || '',
     'Email':      d.email     || '',
-    'Telephone':  d.tel       || '',
+    'Téléphone':  d.tel       || '',
     'Entreprise': d.activite  || '',
     'Has Closer': d.hasCloser || 'non',
   };
