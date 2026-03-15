@@ -702,7 +702,7 @@ const QS = [
 
 // ── TRACKING SOURCE ──
 const SOURCE_MAP = {
-  '1': 'Clement - Setting',
+  '1': 'Lola',
   '2': 'IA LinkedIn',
   '3': 'LinkedIn Inbound',
   '4': 'YouTube',
@@ -1202,7 +1202,8 @@ async function silentCreate(r) {
 // ── ÉTAPE 2 : Mettre à jour avec les infos de contact après optin ──
 async function silentSend(d) {
   if (!AT_KEY || AT_KEY.startsWith('TON_')) return;
-  const fields = {
+  // Champs contact toujours envoyés
+  const contactFields = {
     'Prenom':     d.prenom    || '',
     'Nom':        d.nom       || '',
     'Email':      d.email     || '',
@@ -1210,22 +1211,47 @@ async function silentSend(d) {
     'Entreprise': d.activite  || '',
     'Has Closer': d.hasCloser || 'non',
   };
-  console.log('[Airtable] Mise à jour contact...', airtableRecordId, JSON.stringify(fields));
+
+  console.log('[Airtable] Contact - recordId:', airtableRecordId, JSON.stringify(contactFields));
+
   try {
-    // Si on a l'ID du record créé à l'étape 1 → PATCH (mise à jour)
-    // Sinon → POST (nouveau record complet)
-    const url = airtableRecordId
-      ? 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE) + '/' + airtableRecordId
-      : 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE);
-    const method = airtableRecordId ? 'PATCH' : 'POST';
-    const resp = await fetch(url, {
-      method, mode: 'cors',
-      headers: { 'Authorization': 'Bearer ' + AT_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fields }),
-    });
-    const json = await resp.json();
-    if (!resp.ok) { console.error('[Airtable] Erreur contact', resp.status, JSON.stringify(json)); }
-    else { console.log('[Airtable] Contact OK:', json.id); }
+    if (airtableRecordId) {
+      // PATCH sur le record existant créé à l'étape 1
+      const url = 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE) + '/' + airtableRecordId;
+      const resp = await fetch(url, {
+        method: 'PATCH', mode: 'cors',
+        headers: { 'Authorization': 'Bearer ' + AT_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields: contactFields }),
+      });
+      const json = await resp.json();
+      if (!resp.ok) { console.error('[Airtable] PATCH erreur', resp.status, JSON.stringify(json)); }
+      else { console.log('[Airtable] PATCH OK:', json.id); }
+    } else {
+      // Pas de recordId → POST complet avec tout
+      const allFields = {
+        ...contactFields,
+        'Source':               AFF_SOURCE || 'Direct',
+        'Leads Mois':           d.leads    || 0,
+        'Calls Bookes':         d.bookes   || 0,
+        'Calls Pris':           d.pris     || 0,
+        'Calls Pitches':        d.pitches  || 0,
+        'Closes':               d.closes   || 0,
+        'Prix Offre':           d.prix     || 0,
+        'CA Collecte':          d.collecte || 0,
+        'Perte Mensuelle':      d.perteMens || 0,
+        'Score':                d.score    || 0,
+        'Mois Business':        d.mois     || 0,
+        'Cash Perdu Historique':d.cashHistorique || 0,
+      };
+      const resp = await fetch('https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE), {
+        method: 'POST', mode: 'cors',
+        headers: { 'Authorization': 'Bearer ' + AT_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields: allFields }),
+      });
+      const json = await resp.json();
+      if (!resp.ok) { console.error('[Airtable] POST erreur', resp.status, JSON.stringify(json)); }
+      else { console.log('[Airtable] POST OK:', json.id); }
+    }
   } catch(e) { console.error('[Airtable] Contact échoué:', e); }
 }
 
