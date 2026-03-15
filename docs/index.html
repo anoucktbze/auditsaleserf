@@ -697,11 +697,28 @@ const QS = [
   { id:'closes',   title:'Sur ces calls pitchés, combien as-tu closés ?',              hint:"C'est ici que tout se joue. Chaque 'je réfléchis' non traité = un deal perdu. Ce chiffre révèle la vraie performance de ton système de vente.", badge:'#', placeholder:'ex : 3', tunnel:4 },
   { id:'prix',     title:'Quel est le prix de ton offre ?',                            hint:"C'est le multiplicateur de tout. Un taux de closing amélioré de 10% sur ce prix change tout à tes revenus mensuels.", badge:'€', placeholder:'ex : 3 500', tunnel:-1 },
   { id:'collecte', title:'En moyenne, combien de cash as-tu collecté par mois ?',      hint:"La différence entre ce qui est signé et ce qui est encaissé = l'argent qui dort.", badge:'€', placeholder:'ex : 8 000', tunnel:-1 },
-  { id:'mois_business', title:'Tu as commencé ton business quand ?',                  hint:"On va calculer combien tu as perdu depuis que tu génères des leads — le cash qui aurait dû rentrer.", badge:'#', placeholder:'ex : 18 (mois)', tunnel:-1 },
+  { id:'mois_business', title:'Tu as commencé ton activité en...', hint:"On va calculer exactement combien tu as laissé partir depuis le début — le cash qui aurait dû rentrer.", badge:'📅', placeholder:'', type:'date', tunnel:-1 },
 ];
 
+// ── TRACKING SOURCE ──
+const SOURCE_MAP = {
+  '1': 'Clement - Setting',
+  '2': 'IA LinkedIn',
+  '3': 'LinkedIn Inbound',
+  '4': 'YouTube',
+  '5': 'Insta Bio',
+  '6': 'Insta ManyChat',
+  '7': 'Site Web',
+  '8': 'WhatsApp',
+  '9': 'Affiliation MAE',
+};
+const urlParams = new URLSearchParams(window.location.search);
+const srcParam = urlParams.get('src') || '';
+const AFF_SOURCE = SOURCE_MAP[srcParam] || 'Direct';
+console.log('[Tracking] Source:', AFF_SOURCE);
+
 const TUNNEL_LABELS = ['Leads','Calls bookés','Calls pris','Calls pitchés','Calls closés'];
-let step = 0, ans = {}, cachedR = null, closerVal = '', consentOn = false;
+let step = 0, ans = {}, cachedR = null, closerVal = '', consentOn = false, airtableRecordId = null;
 
 // ── AUDIT ──
 function startAudit() {
@@ -732,19 +749,54 @@ function renderQ() {
   const liveCalc = q.id==='closes'&&cur!==''&&ans.prix ? `<div class="live-calc" id="lc" style="display:block">CA contracté calculé : <strong>${fEur(cur*ans.prix)}</strong></div>`
     : q.id==='prix'&&cur!==''&&ans.closes ? `<div class="live-calc" id="lc" style="display:block">CA contracté calculé : <strong>${fEur(ans.closes*cur)}</strong></div>`
     : `<div class="live-calc" id="lc"></div>`;
-  document.getElementById('qWrap').innerHTML = `
-    <div class="q-card">
-      <div class="q-eyebrow">Question ${step+1} sur ${tot}</div>
-      ${tcHtml ? `<div class="tunnel-context">${tcHtml}</div>` : ''}
-      <div class="q-title">${q.title}</div>
-      <div class="q-hint">${q.hint}</div>
-      <div class="input-shell">
-        <div class="input-badge">${q.badge}</div>
-        <input class="q-input" id="qInp" type="number" placeholder="${q.placeholder}" value="${cur}" oninput="onInput()" onkeydown="onKey(event)" autocomplete="off">
-      </div>
-      ${liveCalc}
-    </div>`;
-  fwd.disabled = !(cur !== '' && parseFloat(cur) >= 0);
+  if (q.type === 'date') {
+    // Date picker mois/année
+    const now = new Date();
+    const savedMonth = ans['launch_month'] || '';
+    const savedYear  = ans['launch_year']  || '';
+    document.getElementById('qWrap').innerHTML = `
+      <div class="q-card">
+        <div class="q-eyebrow">Question ${step+1} sur ${tot}</div>
+        <div class="q-title">${q.title}</div>
+        <div class="q-hint">${q.hint}</div>
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <div style="flex:1">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">Mois</div>
+            <select id="qMonth" onchange="onDateInput()" style="width:100%;background:var(--gris-card);border:1px solid var(--gris-border);padding:16px;font-family:'Lato',sans-serif;font-size:16px;color:var(--navy);outline:none;border-radius:0;appearance:none;cursor:pointer">
+              <option value="">— Mois —</option>
+              ${['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'].map((m,i)=>`<option value="${i+1}" ${savedMonth==i+1?'selected':''}>${m}</option>`).join('')}
+            </select>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">Année</div>
+            <select id="qYear" onchange="onDateInput()" style="width:100%;background:var(--gris-card);border:1px solid var(--gris-border);padding:16px;font-family:'Lato',sans-serif;font-size:16px;color:var(--navy);outline:none;border-radius:0;appearance:none;cursor:pointer">
+              <option value="">— Année —</option>
+              ${Array.from({length:10},(_,i)=>2026-i).map(y=>`<option value="${y}" ${savedYear==y?'selected':''}>${y}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+        <div id="liveMonths" style="background:rgba(26,107,74,.06);border:1px solid rgba(26,107,74,.15);padding:14px 18px;margin-top:16px;font-size:13px;color:var(--vert);display:none">
+          <strong id="liveMonthsVal"></strong>
+        </div>
+      </div>`;
+    const hasSaved = savedMonth && savedYear;
+    fwd.disabled = !hasSaved;
+    if (hasSaved) updateLiveMonths();
+  } else {
+    document.getElementById('qWrap').innerHTML = `
+      <div class="q-card">
+        <div class="q-eyebrow">Question ${step+1} sur ${tot}</div>
+        ${tcHtml ? `<div class="tunnel-context">${tcHtml}</div>` : ''}
+        <div class="q-title">${q.title}</div>
+        <div class="q-hint">${q.hint}</div>
+        <div class="input-shell">
+          <div class="input-badge">${q.badge}</div>
+          <input class="q-input" id="qInp" type="number" placeholder="${q.placeholder}" value="${cur}" oninput="onInput()" onkeydown="onKey(event)" autocomplete="off">
+        </div>
+        ${liveCalc}
+      </div>`;
+    fwd.disabled = !(cur !== '' && parseFloat(cur) >= 0);
+  }
   setTimeout(() => { const el = document.getElementById('qInp'); if(el) el.focus(); }, 60);
 }
 
@@ -761,10 +813,45 @@ function onInput() {
 }
 function onKey(e) { if(e.key==='Enter') goNext(); }
 
+function onDateInput() {
+  const m = document.getElementById('qMonth')?.value;
+  const y = document.getElementById('qYear')?.value;
+  if (m) ans['launch_month'] = parseInt(m);
+  if (y) ans['launch_year']  = parseInt(y);
+  if (m && y) {
+    const now = new Date();
+    const launch = new Date(parseInt(y), parseInt(m)-1, 1);
+    const diffMs = now - launch;
+    const mois = Math.max(1, Math.round(diffMs / (1000*60*60*24*30.44)));
+    ans['mois_business'] = mois;
+    document.getElementById('btnFwd').disabled = false;
+    updateLiveMonths();
+  }
+}
+
+function updateLiveMonths() {
+  const m = ans['launch_month'], y = ans['launch_year'];
+  if (!m || !y) return;
+  const mois = ans['mois_business'] || 0;
+  const el = document.getElementById('liveMonths');
+  const val = document.getElementById('liveMonthsVal');
+  if (el && val) {
+    el.style.display = 'block';
+    const moisLabel = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'][m-1];
+    val.textContent = `Lancé en ${moisLabel} ${y} — soit ${mois} mois d'activité. On va calculer tes pertes sur cette période.`;
+  }
+}
+
 function goNext() {
-  const v = document.getElementById('qInp').value;
-  if (v===''||isNaN(parseFloat(v))) return;
-  ans[QS[step].id] = parseFloat(v);
+  const q = QS[step];
+  if (q.type === 'date') {
+    if (!ans['mois_business']) return;
+    // mois_business déjà calculé dans onDateInput
+  } else {
+    const v = document.getElementById('qInp').value;
+    if (v===''||isNaN(parseFloat(v))) return;
+    ans[q.id] = parseFloat(v);
+  }
   if (step < QS.length-1) { step++; renderQ(); }
   else {
     document.getElementById('auditWrap').classList.remove('active');
@@ -821,6 +908,9 @@ function p(v){return Math.round(v*100)}
 // PAGE CHOC
 // ══════════════════════════════════════
 function renderChocPage(r) {
+  // ── ENVOI AIRTABLE ÉTAPE 1 (données audit, sans contact) ──
+  silentCreate(r);
+
   document.getElementById('loader').classList.add('on');
   setTimeout(() => {
     document.getElementById('loader').classList.remove('on');
@@ -916,6 +1006,7 @@ function submitOptin() {
   const leadData = {
     prenom, email, tel, activite,
     hasCloser: closerVal || 'non_renseigne',
+    source: AFF_SOURCE,
     perteMens: cachedR?.perteMens || 0,
     cashHistorique: cachedR?.cashPerduHistorique || 0,
     score: cachedR?.score || 0,
@@ -1074,33 +1165,68 @@ function renderResults(r, prenom) {
 }
 
 // ── AIRTABLE ──
+// ── ÉTAPE 1 : Créer l'enregistrement avec les données de l'audit ──
+async function silentCreate(r) {
+  if (!AT_KEY || AT_KEY.startsWith('TON_')) return;
+  const fields = {
+    'Source':               AFF_SOURCE       || 'Direct',
+    'Leads Mois':           r.leads          || 0,
+    'Calls Bookes':         r.bookes         || 0,
+    'Calls Pris':           r.pris           || 0,
+    'Calls Pitches':        r.pitches        || 0,
+    'Closes':               r.closes         || 0,
+    'Prix Offre':           r.prix           || 0,
+    'CA Contracte':         r.contracte      || 0,
+    'CA Collecte':          r.collecte       || 0,
+    'Show Rate':            r.tShow          || 0,
+    'Close Rate':           r.tClose         || 0,
+    'Collecte Rate':        r.tCollect       || 0,
+    'Perte Mensuelle':      r.perteMens      || 0,
+    'Score':                r.score          || 0,
+    'Mois Business':        r.mois           || 0,
+    'Cash Perdu Historique':r.cashPerduHistorique || 0,
+  };
+  console.log('[Airtable] Création audit...', JSON.stringify(fields));
+  try {
+    const resp = await fetch('https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE), {
+      method: 'POST', mode: 'cors',
+      headers: { 'Authorization': 'Bearer ' + AT_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields }),
+    });
+    const json = await resp.json();
+    if (!resp.ok) { console.error('[Airtable] Erreur création', resp.status, JSON.stringify(json)); }
+    else { airtableRecordId = json.id; console.log('[Airtable] Créé id:', json.id); }
+  } catch(e) { console.error('[Airtable] Création échouée:', e); }
+}
+
+// ── ÉTAPE 2 : Mettre à jour avec les infos de contact après optin ──
 async function silentSend(d) {
   if (!AT_KEY || AT_KEY.startsWith('TON_')) return;
   const fields = {
     'Prenom':     d.prenom    || '',
     'Nom':        d.nom       || '',
     'Email':      d.email     || '',
-    'Téléphone': d.tel       || '',
+    'Telephone':  d.tel       || '',
     'Entreprise': d.activite  || '',
     'Has Closer': d.hasCloser || 'non',
   };
-  console.log('[Airtable] Envoi en cours...', JSON.stringify(fields));
+  console.log('[Airtable] Mise à jour contact...', airtableRecordId, JSON.stringify(fields));
   try {
-    const resp = await fetch('https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE), {
-      method: 'POST',
-      mode: 'cors',
+    // Si on a l'ID du record créé à l'étape 1 → PATCH (mise à jour)
+    // Sinon → POST (nouveau record complet)
+    const url = airtableRecordId
+      ? 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE) + '/' + airtableRecordId
+      : 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE);
+    const method = airtableRecordId ? 'PATCH' : 'POST';
+    const resp = await fetch(url, {
+      method, mode: 'cors',
       headers: { 'Authorization': 'Bearer ' + AT_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({ fields }),
     });
     const json = await resp.json();
-    if (!resp.ok) {
-      console.error('[Airtable] Erreur', resp.status, JSON.stringify(json));
-    } else {
-      console.log('[Airtable] OK — id:', json.id);
-    }
-  } catch(e) {
-    console.error('[Airtable] Fetch echoue:', e);
-  }
+    if (!resp.ok) { console.error('[Airtable] Erreur contact', resp.status, JSON.stringify(json)); }
+    else { console.log('[Airtable] Contact OK:', json.id); }
+  } catch(e) { console.error('[Airtable] Contact échoué:', e); }
 }
 
 // ── FORMAT ──
