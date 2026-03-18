@@ -682,7 +682,7 @@ h1 em{font-style:italic;color:var(--beige)}
 <script>
 const AT_KEY   = 'patr4JbhgmO6OY0dY.18e8d6466be161fbad07894039ce184e5acb3d99f53a49e79b541ab8416dbf99';
 const AT_BASE  = 'appKLiDRQbaL8m0xJ';
-const AT_TABLE = 'Table 1';
+const AT_TABLE = 'Général';
 
 const B = {
   bookRate:.15, showRate:.70, pitchRate:.85, closeRate:.25, collectRate:.80,
@@ -1168,7 +1168,8 @@ function renderResults(r, prenom) {
 // ── ÉTAPE 1 : Créer l'enregistrement avec les données de l'audit ──
 async function silentCreate(r) {
   if (!AT_KEY || AT_KEY.startsWith('TON_')) return;
-  const now = new Date().toISOString();
+  const _d = new Date();
+  const now = _d.toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit',year:'numeric'}) + ' ' + _d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
   const fields = {
     'Source':                AFF_SOURCE            || 'Direct',
     'Date':                  now,
